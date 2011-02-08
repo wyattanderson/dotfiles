@@ -1,0 +1,2 @@
+" Loader for git-stored dotfiles on windows
+source ~/dotfiles/gvimrc
