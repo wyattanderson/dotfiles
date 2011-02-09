@@ -124,9 +124,9 @@ hi Delimiter        guifg=#00A0A0     guibg=NONE        gui=NONE      ctermfg=cy
 hi Operator         guifg=white       guibg=NONE        gui=NONE      ctermfg=white       ctermbg=NONE        cterm=NONE
 
 hi DiffAdd                       guibg=#13354A
-hi DiffChange      guifg=#89807D guibg=#4C4745
+hi DiffChange      guifg=#FF9900 guibg=#1E1200
 hi DiffDelete      guifg=#960050 guibg=#1E0010
-hi DiffText                      guibg=#4C4745 gui=italic,bold
+hi DiffText        guifg=#1E1200 guibg=#FF9900 gui=italic,bold
 
 hi link Character       Constant
 hi link Boolean         Constant
