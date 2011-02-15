@@ -1,6 +1,7 @@
 " Set colorscheme and fonts
 if has("win32")
    set gfn=Bitstream_Vera_Sans_Mono:h10:cANSI
+   au GUIEnter * simalt ~x
 endif
 colorscheme ir_black
 " Disable tab bar and buttons
