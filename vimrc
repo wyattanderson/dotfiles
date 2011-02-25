@@ -1,6 +1,6 @@
 set nocompatible
 syntax on
-colorscheme ir_black
+colorscheme evening
 set tabstop=3
 set shiftwidth=3
 set smarttab
@@ -15,7 +15,11 @@ set novb
 set backspace=indent,eol,start
 set ignorecase
 set smartcase
-set title
+
+" Load pathogen
+filetype off
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
 
 augroup mkd
    autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
