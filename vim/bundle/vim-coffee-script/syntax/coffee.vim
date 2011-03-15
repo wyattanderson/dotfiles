@@ -121,6 +121,7 @@ highlight default link coffeeTodo Todo
 
 syntax match coffeeComment /#.*/ contains=@Spell,coffeeTodo
 syntax match coffeeComment /####\@!\_.\{-}###/ contains=@Spell,coffeeTodo
+syntax region coffeeComment start="^###" end="^###" contains=@Spell,coffeeTodo
 highlight default link coffeeComment Comment
 
 syntax region coffeeHereComment start=/#/ end=/\ze\/\/\// end=/$/ contained contains=@Spell,coffeeTodo
