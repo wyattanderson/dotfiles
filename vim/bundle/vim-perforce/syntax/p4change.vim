@@ -1,3 +1,7 @@
+" Language:    p4change
+" Maintainer:  Wyatt Anderson <wanderson@gmail.com>
+" License:     WTFPL
+
 if exists("b:current_syntax")
    finish
 endif

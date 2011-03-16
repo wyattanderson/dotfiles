@@ -1,3 +1,7 @@
+" Language:    p4change
+" Maintainer:  Wyatt Anderson <wanderson@gmail.com>
+" License:     WTFPL
+
 autocmd BufNewFile,BufRead /tmp* :call Detect_p4change()
 autocmd BufNewFile,BufRead t*.tmp :call Detect_p4change()
 
