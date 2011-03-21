@@ -9,4 +9,7 @@ function! Detect_p4change ()
    if getline(1) =~ '^# A Perforce Change Specification.'
       set filetype=p4change
    endif
+   if getline(1) =~ '^# A Perforce Client Specification.'
+      set filetype=p4client
+   endif
 endfunction
