@@ -2,6 +2,8 @@
 if has("win32")
    set gfn=Bitstream_Vera_Sans_Mono:h10:cANSI
    au GUIEnter * simalt ~x
+elseif has("mac")
+   set gfn=Bitstream\ Vera\ Sans\ Mono:h12
 elseif has("unix")
    set gfn=Bitstream\ Vera\ Sans\ Mono\ 12
 endif
