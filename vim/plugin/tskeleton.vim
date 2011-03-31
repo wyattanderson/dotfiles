@@ -187,6 +187,7 @@ augroup tSkeleton
         autocmd BufNewFile *.php       TSkeletonSetup php.php
         autocmd BufNewFile *.tpl       TSkeletonSetup smarty.tpl
         autocmd BufNewFile *.html      TSkeletonSetup html.html
+        autocmd BufNewFile *.coffee    TSkeletonSetup coffee.coffee
 
     endif
 
