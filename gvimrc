@@ -14,3 +14,6 @@ set guioptions-=T
 set guioptions-=e
 " Disable visual bell
 set novb
+
+set cursorline
+set colorcolumn

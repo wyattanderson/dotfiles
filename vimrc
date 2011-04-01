@@ -6,7 +6,10 @@ call pathogen#helptags()
 filetype plugin indent on
 set nocompatible
 syntax on
-colorscheme evening
+
+set t_Co=256
+colorscheme ir_black
+
 set tabstop=3
 set shiftwidth=3
 set smarttab
@@ -22,10 +25,6 @@ set backspace=indent,eol,start
 set ignorecase
 set smartcase
 set wildmenu
-set cursorline
-
-set list
-set listchars=eol:¬
 
 augroup mkd
    autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
