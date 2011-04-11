@@ -33,6 +33,7 @@ augroup END
 nmap <C-F4> :tabclose<CR>
 nmap <C-F8> :NERDTreeToggle<CR>
 map <leader><space> :let @/=''<CR>
+inoremap jj <ESC>
 
 let g:tskelUserName  = 'Wyatt Anderson'
 let g:tskelUserEmail = 'wanderson@factset.com'

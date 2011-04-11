@@ -16,4 +16,9 @@ set guioptions-=e
 set novb
 
 set cursorline
-set colorcolumn
+
+" Tab mappings
+nmap <C-Tab> :tabnext<CR>
+nmap <C-S-Tab> :tabprev<CR>
+map <C-t> :tabnew<CR>
+
