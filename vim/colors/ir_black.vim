@@ -90,6 +90,8 @@ hi Error            guifg=NONE        guibg=NONE        gui=undercurl ctermfg=wh
 hi ErrorMsg         guifg=white       guibg=#FF6C60     gui=BOLD      ctermfg=white       ctermbg=red         cterm=NONE
 hi WarningMsg       guifg=white       guibg=#FF6C60     gui=BOLD      ctermfg=white       ctermbg=red         cterm=NONE
 
+hi link coffeeTodo ErrorMsg
+
 " Message displayed in lower left, such as --INSERT--
 hi ModeMsg          guifg=black       guibg=#C6C5FE     gui=BOLD      ctermfg=black       ctermbg=cyan        cterm=BOLD
 hi ColorColumn      ctermbg=darkgrey  guibg=#111111
