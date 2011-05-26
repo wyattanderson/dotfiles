@@ -39,3 +39,5 @@ command! -bang -bar -nargs=* CoffeeMake exec 'make<bang>' coffee_make_options '<
 if exists("coffee_compile_on_save")
   autocmd BufWritePost,FileWritePost *.coffee silent !coffee -c "<afile>" &
 endif
+
+autocmd InsertEnter * :if synIDattr(synIDtrans(synID(line("."), col("."), 0)), "name") == "Comment" | :setlocal textwidth=79 formatoptions+=t | :else | :setlocal textwidth=79 formatoptions-=t | :endif

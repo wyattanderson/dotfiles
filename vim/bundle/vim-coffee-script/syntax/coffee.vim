@@ -120,7 +120,7 @@ highlight default link coffeePrototype SpecialChar
 syntax match coffeeFunction /->\|=>/
 highlight default link coffeeFunction Function
 
-syntax keyword coffeeTodo TODO FIXME XXX contained
+syntax keyword coffeeTodo TODO FIXME XXX contained log
 highlight default link coffeeTodo Todo
 
 syntax match coffeeComment /#.*/ contains=@Spell,coffeeTodo
