@@ -7,6 +7,9 @@ if exists("b:did_ftplugin")
   finish
 endif
 
+augroup coffee
+au!
+
 let b:did_ftplugin = 1
 
 setlocal formatoptions-=t formatoptions+=croql
@@ -41,3 +44,5 @@ if exists("coffee_compile_on_save")
 endif
 
 autocmd InsertEnter * :if synIDattr(synIDtrans(synID(line("."), col("."), 0)), "name") == "Comment" | :setlocal textwidth=79 formatoptions+=t | :else | :setlocal textwidth=79 formatoptions-=t | :endif
+
+augroup END
