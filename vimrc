@@ -18,7 +18,7 @@ if &term =~ "xterm"
  endif
 endif
 
-colorscheme ir_black
+colorscheme evening
 
 let mapleader = ","
 
@@ -70,7 +70,7 @@ let g:tskelLicense   = '(c) FactSet Research Systems - All Rights Reserved'
 "   %V current virtual column number (-n), if different from %c
 "   %P percentage through buffer
 "   %) end of width specification
-set statusline=%<\ %n:%f\ %{P4RulerStatus()}\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 
 set listchars=tab:>-,trail:?,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
