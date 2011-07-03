@@ -12,6 +12,8 @@ colorscheme ir_black
 " Disable tab bar and buttons
 set guioptions-=T
 set guioptions-=e
+set guioptions+=c " Use console dialogs, no popups
+set go-=l go-=L go-=r go-=R
 " Disable visual bell
 set novb
 

@@ -49,9 +49,9 @@ map <leader><space> :let @/=''<CR>
 inoremap kj <ESC>
 
 let g:tskelUserName  = 'Wyatt Anderson'
-let g:tskelUserEmail = 'wanderson@factset.com'
-let g:tskelUserWWW   = 'http://www.factset.com/'
-let g:tskelLicense   = '(c) FactSet Research Systems - All Rights Reserved'
+let g:tskelUserEmail = 'wanderson@gmail.com'
+let g:tskelUserWWW   = 'http://www.wyattanderson.com'
+let g:tskelLicense   = '(c) Wyatt Anderson - All Rights Reserved'
 
 " statusline
 " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
