@@ -16,6 +16,9 @@ setlocal formatoptions-=t formatoptions+=croql
 setlocal comments=f-1:###,:#
 setlocal commentstring=#\ %s
 
+" indentation settings
+setlocal tabstop=2 shiftwidth=2 softtabstop=2
+
 setlocal makeprg=coffee\ -c\ $*\ '%'
 setlocal errorformat=Error:\ In\ %f\\,\ %m\ on\ line\ %l,
                     \Error:\ In\ %f\\,\ Parse\ error\ on\ line\ %l:\ %m,

@@ -18,7 +18,7 @@ if &term =~ "xterm"
  endif
 endif
 
-colorscheme ir_black
+colorscheme evening
 
 let mapleader = ","
 
@@ -53,9 +53,9 @@ map <leader><space> :let @/=''<CR>
 inoremap kj <ESC>
 
 let g:tskelUserName  = 'Wyatt Anderson'
-let g:tskelUserEmail = 'wanderson@factset.com'
-let g:tskelUserWWW   = 'http://www.factset.com/'
-let g:tskelLicense   = '(c) FactSet Research Systems - All Rights Reserved'
+let g:tskelUserEmail = 'wanderson@gmail.com'
+let g:tskelUserWWW   = 'http://www.wyattanderson.com'
+let g:tskelLicense   = '(c) Wyatt Anderson - All Rights Reserved'
 
 " statusline
 " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
@@ -74,7 +74,7 @@ let g:tskelLicense   = '(c) FactSet Research Systems - All Rights Reserved'
 "   %V current virtual column number (-n), if different from %c
 "   %P percentage through buffer
 "   %) end of width specification
-set statusline=%<\ %n:%f\ %{P4RulerStatus()}\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 
 set listchars=tab:>-,trail:?,eol:$
 nmap <silent> <leader>w :set nolist!<CR>
