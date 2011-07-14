@@ -39,6 +39,10 @@ set smartcase
 set wildmenu
 set laststatus=2
 
+" Move swap files and stuff
+set directory=~/.vim/tmp,/tmp
+
+
 augroup mkd
    autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
 augroup END
@@ -73,4 +77,4 @@ let g:tskelLicense   = '(c) FactSet Research Systems - All Rights Reserved'
 set statusline=%<\ %n:%f\ %{P4RulerStatus()}\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 
 set listchars=tab:>-,trail:?,eol:$
-nmap <silent> <leader>s :set nolist!<CR>
+nmap <silent> <leader>w :set nolist!<CR>

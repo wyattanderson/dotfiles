@@ -22,3 +22,5 @@ nmap <C-Tab> :tabnext<CR>
 nmap <C-S-Tab> :tabprev<CR>
 map <C-t> :tabnew<CR>
 
+" Map <C-C> to X11 copy
+noremap <silent> <C-C> "+y<CR>
