@@ -42,7 +42,6 @@ set laststatus=2
 " Move swap files and stuff
 set directory=~/.vim/tmp,/tmp
 
-
 augroup mkd
    autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
 augroup END
@@ -73,3 +72,8 @@ set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 
 set listchars=tab:>-,trail:?,eol:$
 nmap <silent> <leader>w :set nolist!<CR>
+
+let g:tskelUserName  = 'Wyatt Anderson'
+let g:tskelUserEmail = 'wanderson@gmail.com'
+let g:tskelUserWWW   = 'http://www.wyattanderson.com'
+let g:tskelLicense   = '(c) Wyatt Anderson - All Rights Reserved'
