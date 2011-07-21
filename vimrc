@@ -18,7 +18,7 @@ if &term =~ "xterm"
  endif
 endif
 
-colorscheme evening
+colorscheme ir_black
 
 let mapleader = ","
 
