@@ -38,6 +38,7 @@ set ignorecase
 set smartcase
 set wildmenu
 set laststatus=2
+set showbreak=>
 
 " Move swap files and stuff
 set directory=~/.vim/tmp,/tmp
