@@ -41,7 +41,11 @@ set laststatus=2
 set showbreak=>
 
 " Move swap files and stuff
-set directory=~/.vim/tmp,/tmp
+if has("win32")
+   set directory=$TEMP
+else
+   set directory=~/.vim/tmp,/tmp
+endif
 
 augroup mkd
    autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
