@@ -15,6 +15,7 @@ fi
 short_host=`
 sed -e 's/justice/j/' \
     -e 's/unixdev/ud/' \
+    -e 's/li237-186/li/' \
     <<< $HOSTNAME`
 short_username=`
 sed -e 's/wyatt/w/' \
