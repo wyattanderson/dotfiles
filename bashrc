@@ -38,3 +38,7 @@ host_color="$((31 + $(hostname | cksum | cut -c1-3) % 6))"
 declare -x PS1="\[\e[${user_color}m\]$short_username\[\e[0m\]@\[\e[1;${host_color}m\]$short_host\[\e[0m\]:$red_flag\w\[\e[0m\] "
 
 alias ll='ls -lh'
+
+if [ -r ~/.bashrc-local ]; then
+   source ~/.bashrc-local
+fi
