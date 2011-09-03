@@ -16,13 +16,17 @@ short_host=`
 sed -e 's/justice/j/' \
     -e 's/unixdev/ud/' \
     -e 's/li237-186/li/' \
+    -e 's/phoenix\.int\.wyattanderson\.com/ph/' \
     <<< $HOSTNAME`
 short_username=`
 sed -e 's/wyatt/w/' \
     -e 's/wanderson/wa/' \
     <<< $USER`
+
 if [ $short_username == $USER ]; then
    user_color='1;31' # red for non-wyatt user
+elif [ $TERM_PROGRAM == "Apple_Terminal" ]; then
+   user_color='0;37' # "light gray" for OS X terminal
 else
    user_color='1;30' # dark gray
 fi
@@ -38,3 +42,7 @@ host_color="$((31 + $(hostname | cksum | cut -c1-3) % 6))"
 declare -x PS1="\[\e[${user_color}m\]$short_username\[\e[0m\]@\[\e[1;${host_color}m\]$short_host\[\e[0m\]:$red_flag\w\[\e[0m\] "
 
 alias ll='ls -lh'
+
+if [ -r ~/.bashrc-local ]; then
+   source ~/.bashrc-local
+fi
