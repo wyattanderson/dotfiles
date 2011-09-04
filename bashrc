@@ -25,7 +25,7 @@ sed -e 's/wyatt/w/' \
 
 if [ $short_username == $USER ]; then
    user_color='1;31' # red for non-wyatt user
-elif [ $TERM_PROGRAM == "Apple_Terminal" ]; then
+elif [ "$TERM_PROGRAM" == "Apple_Terminal" ]; then
    user_color='0;37' # "light gray" for OS X terminal
 else
    user_color='1;30' # dark gray
