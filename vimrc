@@ -92,5 +92,7 @@ let g:tskelUserEmail = 'wanderson@gmail.com'
 let g:tskelUserWWW   = 'http://www.wyattanderson.com'
 let g:tskelLicense   = '(c) Wyatt Anderson - All Rights Reserved'
 
+autocmd InsertEnter * :if synIDattr(synIDtrans(synID(line("."), col("."), 0)), "name") == "Comment" | :setlocal textwidth=79 formatoptions+=t | :else | :setlocal textwidth=79 formatoptions-=t | :endif
+
 " Highlight VCS merge errors
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
