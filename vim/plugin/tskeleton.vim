@@ -2,8 +2,8 @@
 " @Author:      Tom Link (micathom AT gmail com?subject=vim)
 " @License:     GPL (see http://www.gnu.org/licenses/gpl.txt)
 " @Created:     21-Sep-2004.
-" @Last Change: 2010-11-13.
-" @Revision:    3900
+" @Last Change: 2011-06-27.
+" @Revision:    3903
 "
 " GetLatestVimScripts: 1160 1 tskeleton.vim
 " http://www.vim.org/scripts/script.php?script_id=1160
@@ -27,7 +27,7 @@ if !exists('loaded_tlib') || loaded_tlib < 29
         finish
     endif
 endif
-let loaded_tskeleton = 410
+let loaded_tskeleton = 411
 
 
 if !exists("g:tskelDir") "{{{2
@@ -174,20 +174,25 @@ augroup tSkeleton
         call map(split(glob(tlib#file#Join([g:tskelDir, 'templates', '**'], 1)), '\n'), 'isdirectory(v:val) || s:DefineAutoCmd(v:val)')
         delfunction s:DefineAutoCmd
 
-        autocmd BufNewFile *.bat       TSkeletonSetup batch.bat
-        autocmd BufNewFile *.tex       TSkeletonSetup latex.tex
-        autocmd BufNewFile tc-*.rb     TSkeletonSetup tc-ruby.rb
-        autocmd BufNewFile *.rb        TSkeletonSetup ruby.rb
-        autocmd BufNewFile *.rbx       TSkeletonSetup ruby.rb
-        autocmd BufNewFile *.sh        TSkeletonSetup shell.sh
-        autocmd BufNewFile *.txt       TSkeletonSetup text.txt
-        autocmd BufNewFile *.vim       TSkeletonSetup plugin.vim
-        autocmd BufNewFile *.inc.php   TSkeletonSetup php.inc.php
-        autocmd BufNewFile *.class.php TSkeletonSetup php.class.php
-        autocmd BufNewFile *.php       TSkeletonSetup php.php
-        autocmd BufNewFile *.tpl       TSkeletonSetup smarty.tpl
-        autocmd BufNewFile *.html      TSkeletonSetup html.html
-        autocmd BufNewFile *.coffee    TSkeletonSetup coffee.coffee
+        for [s:pat, s:tpl] in [
+                    \ ["*.bat",       "batch.bat"],
+                    \ ["*.tex",       "latex.tex"],
+                    \ ["tc-*.rb",     "tc-ruby.rb"],
+                    \ ["*.rb",        "ruby.rb"],
+                    \ ["*.rbx",       "ruby.rb"],
+                    \ ["*.sh",        "shell.sh"],
+                    \ ["*.txt",       "text.txt"],
+                    \ ["*.vim",       "plugin.vim"],
+                    \ ["*.inc.php",   "php.inc.php"],
+                    \ ["*.class.php", "php.class.php"],
+                    \ ["*.php",       "php.php"],
+                    \ ["*.tpl",       "smarty.tpl"],
+                    \ ["*.html",      "html.html"]
+                    \ ]
+            if filereadable(tlib#file#Join([g:tskelDir, s:tpl]))
+                exec 'autocmd BufNewFile' s:pat 'TSkeletonSetup' s:tpl
+            endif
+        endfor
 
     endif
 

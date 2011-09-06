@@ -36,10 +36,15 @@ if [ -e /etc/fds/prod ] || [ $USER == "root" ]; then
    red_flag="\[\e[37;41m\]"
 fi
 
+if [ -f ~/.bash_completion.d/git-completion.bash ]; then
+   source ~/.bash_completion.d/git-completion.bash
+   declare -x GIT_PS1_SHOWDIRTYSTATE=1
+fi
+
 # Calculate a short checksum of the real hostname to determine a unique color
 host_color="$((31 + $(hostname | cksum | cut -c1-3) % 6))"
 
-declare -x PS1="\[\e[${user_color}m\]$short_username\[\e[0m\]@\[\e[1;${host_color}m\]$short_host\[\e[0m\]:$red_flag\w\[\e[0m\] "
+declare -x PS1='\[\e[${user_color}m\]$short_username\[\e[0m\]@\[\e[1;${host_color}m\]$short_host\[\e[0m\]:$red_flag\w\[\e[0m\]\$$(__git_ps1) '
 
 alias ll='ls -lh'
 

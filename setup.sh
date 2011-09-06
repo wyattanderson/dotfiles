@@ -18,3 +18,5 @@ if [ -e ~/.bashrc ] && [ ! -h ~/.bashrc ]; then
    fi
 fi
 ln -s ~/dotfiles/bashrc ~/.bashrc
+
+ln -s ~/dotfiles/bash_completion.d/ ~/.bash_completion.d
