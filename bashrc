@@ -31,9 +31,9 @@ else
    user_color='1;30' # dark gray
 fi
 
-red_flag=
+red_flag='0'
 if [ -e /etc/fds/prod ] || [ $USER == "root" ]; then
-   red_flag="\[\e[37;41m\]"
+   red_flag='37;41'
 fi
 
 if [ -f ~/.bash_completion.d/git-completion.bash ]; then
@@ -44,7 +44,7 @@ fi
 # Calculate a short checksum of the real hostname to determine a unique color
 host_color="$((31 + $(hostname | cksum | cut -c1-3) % 6))"
 
-declare -x PS1='\[\e[${user_color}m\]$short_username\[\e[0m\]@\[\e[1;${host_color}m\]$short_host\[\e[0m\]:$red_flag\w\[\e[0m\]\$$(__git_ps1) '
+declare -x PS1='\[\e[${user_color}m\]$short_username\[\e[0m\]@\[\e[1;${host_color}m\]$short_host\[\e[0m\]:\[\e[${red_flag}m\]\w\[\e[0m\]\$$(__git_ps1) '
 
 alias ll='ls -lh'
 
