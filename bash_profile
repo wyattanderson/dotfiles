@@ -15,10 +15,6 @@ fi
 # User preferences
 declare -x EDITOR=vim
 
-if [ -r ~/.profile ]; then
-   source ~/.profile
-fi
-
 # Check the window size after each command
 shopt -s checkwinsize
 
