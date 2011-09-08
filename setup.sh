@@ -1,22 +1,11 @@
 #!/bin/bash
-ln -s ~/dotfiles/vimrc ~/.vimrc
-ln -s ~/dotfiles/gvimrc ~/.gvimrc
-ln -s ~/dotfiles/vim ~/.vim
-
-if [ -e ~/.bash_profile ] && [ ! -h ~/.bash_profile ]; then
-   read -p "Move existing .bash_profile to .bash_profile_old? " -n 1
-   if [[ $REPLY =~ ^[Yy]$ ]]; then
-      mv ~/.bash_profile ~/.bash_profile_old
+for file in vimrc gvimrc vim bash_profile bashrc bash_completion.d; do
+   if [ -e ~/.${file} ] && [ ! -h ~/.${file} ]; then
+      read -p "Move existing $file to ${file}_old? " -n 1
+      if [[ $REPLY =~ ^[Yy]$ ]]; then
+         echo "\n";
+         mv ~/.${file} ~/.${file}_old
+      fi
    fi
-fi
-ln -s ~/dotfiles/bash_profile ~/.bash_profile
-
-if [ -e ~/.bashrc ] && [ ! -h ~/.bashrc ]; then
-   read -p "Move existing .bashrc to .bashrc_old? " -n 1
-   if [[ $REPLY =~ ^[Yy]$ ]]; then
-      mv ~/.bashrc ~/.bashrc_old
-   fi
-fi
-ln -s ~/dotfiles/bashrc ~/.bashrc
-
-ln -s ~/dotfiles/bash_completion.d/ ~/.bash_completion.d
+   ln -s ~/dotfiles/${file} ~/.${file}
+done
