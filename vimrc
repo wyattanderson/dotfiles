@@ -22,11 +22,11 @@ colorscheme tir_black
 
 let mapleader = ","
 
-set tabstop=3
-set shiftwidth=3
+set tabstop=4
+set shiftwidth=4
 set smarttab
 set expandtab
-set softtabstop=3
+set softtabstop=4
 set autoindent
 set copyindent
 set number
