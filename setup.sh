@@ -10,9 +10,9 @@ for file in vimrc gvimrc vim bash_profile bashrc bash_completion.d; do
       # FILENAME_old. If we don't move it, ln won't overwrite it, it'll just
       # fail.
       if [ -e ~/.${file} ]; then
-         read -p "Move existing $file to ${file}_old? " -n 1
+         read -p "Move existing $file to ${file}_old? y[n] " -n 1
+         echo
          if [[ $REPLY =~ ^[Yy]$ ]]; then
-            echo "\n";
             mv ~/.${file} ~/.${file}_old
          fi
       fi
