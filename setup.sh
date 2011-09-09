@@ -1,22 +1,23 @@
 #!/bin/bash
-ln -s ~/dotfiles/vimrc ~/.vimrc
-ln -s ~/dotfiles/gvimrc ~/.gvimrc
-ln -s ~/dotfiles/vim ~/.vim
 
-if [ -e ~/.bash_profile ] && [ ! -h ~/.bash_profile ]; then
-   read -p "Move existing .bash_profile to .bash_profile_old? " -n 1
-   if [[ $REPLY =~ ^[Yy]$ ]]; then
-      mv ~/.bash_profile ~/.bash_profile_old
+# Iterate over the list of setup files we want to alias from our dotfile
+# distribution
+for file in vimrc gvimrc vim bash_profile bashrc bash_completion.d; do
+   # Check to see if the file already has a symlink. If it does, we won't touch
+   # it.
+   if [ ! -h ~/.${file} ]; then
+      # If the file exists, ask the user if they'd like us to move it to
+      # FILENAME_old. If we don't move it, ln won't overwrite it, it'll just
+      # fail.
+      if [ -e ~/.${file} ]; then
+         read -p "Move existing $file to ${file}_old? y[n] " -n 1
+         echo
+         if [[ $REPLY =~ ^[Yy]$ ]]; then
+            mv ~/.${file} ~/.${file}_old
+         fi
+      fi
+      # Add the appropriate symlink
+      echo "Symlinking ~/dotfiles/${file} to ~/.${file}"
+      ln -s ~/dotfiles/${file} ~/.${file}
    fi
-fi
-ln -s ~/dotfiles/bash_profile ~/.bash_profile
-
-if [ -e ~/.bashrc ] && [ ! -h ~/.bashrc ]; then
-   read -p "Move existing .bashrc to .bashrc_old? " -n 1
-   if [[ $REPLY =~ ^[Yy]$ ]]; then
-      mv ~/.bashrc ~/.bashrc_old
-   fi
-fi
-ln -s ~/dotfiles/bashrc ~/.bashrc
-
-ln -s ~/dotfiles/bash_completion.d/ ~/.bash_completion.d
+done
