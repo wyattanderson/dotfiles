@@ -5,7 +5,7 @@
 for file in vimrc gvimrc vim bash_profile bashrc bash_completion.d; do
    # Check to see if the file already has a symlink. If it does, we won't touch
    # it.
-   if [ ! -h ~/.${file} ]; then
+   if [ ! -L ~/.${file} ]; then
       # If the file exists, ask the user if they'd like us to move it to
       # FILENAME_old. If we don't move it, ln won't overwrite it, it'll just
       # fail.
