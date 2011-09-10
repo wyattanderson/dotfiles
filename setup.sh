@@ -17,7 +17,7 @@ for file in vimrc gvimrc vim bash_profile bashrc bash_completion.d; do
          fi
       fi
       # Add the appropriate symlink
-      echo "Symlinking ~/dotfiles/${file} to ~/.${file}"
-      ln -s ~/dotfiles/${file} ~/.${file}
+      echo "Symlinking ${PWD}/${file} to ~/.${file}"
+      ln -s ${PWD}/${file} ~/.${file}
    fi
 done
