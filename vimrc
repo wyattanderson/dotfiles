@@ -40,6 +40,7 @@ set wildmenu
 set laststatus=2
 set showbreak=>
 set textwidth=79
+set formatoptions=croqnl1
 
 " Move swap files and stuff
 if has("win32")
@@ -93,7 +94,6 @@ let g:tskelUserEmail = 'wanderson@gmail.com'
 let g:tskelUserWWW   = 'http://www.wyattanderson.com'
 let g:tskelLicense   = '(c) Wyatt Anderson - All Rights Reserved'
 
-autocmd InsertEnter * :if synIDattr(synIDtrans(synID(line("."), col("."), 0)), "name") == "Comment" | :setlocal textwidth=79 formatoptions+=t | :else | :setlocal formatoptions& | :endif
 autocmd BufRead,BufNewFile /etc/nginx/conf.d/* set ft=nginx
 
 " Highlight VCS merge errors
