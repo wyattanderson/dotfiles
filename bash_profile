@@ -65,7 +65,7 @@ else
    host_color="1;$((31 + $(hostname | cksum | cut -c1-3) % 6))";
 fi
 
-declare -x PS1='\[\e[${user_color}m\]$short_username\[\e[0m\]@\[\e[${host_color}m\]$short_host\[\e[0m\]:\[\e[${red_flag}m\]\w\[\e[0m\]\$$(__git_ps1) '
+declare -x PS1='\[\e[1;30m\]\!\[\e[0m\] \[\e[${user_color}m\]$short_username\[\e[0m\]@\[\e[${host_color}m\]$short_host\[\e[0m\]:\[\e[${red_flag}m\]\W\[\e[0m\]\$$(__git_ps1) '
 
 alias ll='ls -lh'
 
