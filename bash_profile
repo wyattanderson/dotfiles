@@ -59,9 +59,13 @@ if [ -f ~/.bash_completion.d/git-completion.bash ]; then
 fi
 
 # Calculate a short checksum of the real hostname to determine a unique color
-host_color="$((31 + $(hostname | cksum | cut -c1-3) % 6))"
+if [ $TERM == "xterm-256color" ]; then
+   host_color="38;5;$((16 + $(hostname | cksum | cut -c1-3) % 256))";
+else
+   host_color="1;$((31 + $(hostname | cksum | cut -c1-3) % 6))";
+fi
 
-declare -x PS1='\[\e[${user_color}m\]$short_username\[\e[0m\]@\[\e[1;${host_color}m\]$short_host\[\e[0m\]:\[\e[${red_flag}m\]\w\[\e[0m\]\$$(__git_ps1) '
+declare -x PS1='\[\e[${user_color}m\]$short_username\[\e[0m\]@\[\e[${host_color}m\]$short_host\[\e[0m\]:\[\e[${red_flag}m\]\w\[\e[0m\]\$$(__git_ps1) '
 
 alias ll='ls -lh'
 
