@@ -60,7 +60,7 @@ fi
 
 # Calculate a short checksum of the real hostname to determine a unique color
 if [ $TERM == "xterm-256color" ]; then
-   host_color="38;5;$((16 + $(hostname | cksum | cut -c1-3) % 256))";
+   host_color="38;5;$((16 + $(hostname | cksum | cut -c1-3) % 215))";
 else
    host_color="1;$((31 + $(hostname | cksum | cut -c1-3) % 6))";
 fi
