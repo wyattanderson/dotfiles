@@ -15,7 +15,7 @@ fi
 # Set up EDITOR based on what's available
 case "$OSTYPE" in
     linux-gnu)
-        if [ -n $DISPLAY ]; then
+        if [ -n "$DISPLAY" ]; then
             declare -x EDITOR="gvim -f"
         fi
         ;;
@@ -24,7 +24,7 @@ case "$OSTYPE" in
         declare -x EDITOR="mvim -f"
         ;;
 esac
-if [ -z $EDITOR ]; then
+if [ -z "$EDITOR" ]; then
     declare -x EDITOR=vim
 fi
 
