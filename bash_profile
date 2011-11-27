@@ -8,12 +8,25 @@ esac
 
 # If the display hasn't been set already, i.e. via SSH X-forwarding,
 # set it to the remote host's primary display (this works for Xming)
-if [ -n $DISPLAY ]; then
+if [ -z $DISPLAY ] && [ -n $SSH_CLIENT ]; then
     declare -x DISPLAY=`cut -d ' ' -f 1 <<< $SSH_CLIENT`:0.0
 fi
 
-# User preferences
-declare -x EDITOR=vim
+# Set up EDITOR based on what's available
+case "$OSTYPE" in
+    linux-gnu)
+        if [ -n $DISPLAY ]; then
+            declare -x EDITOR="gvim -f"
+        fi
+        ;;
+    darwin11)
+        declare -x PATH="~/dotfiles/bin:$PATH"
+        declare -x EDITOR="mvim -f"
+        ;;
+esac
+if [ -z $EDITOR ]; then
+    declare -x EDITOR=vim
+fi
 
 # Check the window size after each command
 shopt -s checkwinsize
