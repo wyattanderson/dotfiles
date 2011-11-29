@@ -53,11 +53,14 @@ augroup mkd
    autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
 augroup END
 
+" Key mappings
 nmap <C-F4> :tabclose<CR>
-nmap <C-F8> :NERDTreeToggle<CR>
+nmap <leader>n :NERDTreeToggle<CR>
+vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
 map <leader><space> :let @/=''<CR>
 inoremap kj <ESC>
 
+" No arrow keys for you!
 inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
