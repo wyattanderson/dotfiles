@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Update and init submodules
+git submodule update --init
+
 # Iterate over the list of setup files we want to alias from our dotfile
 # distribution
 for file in vimrc gvimrc vim bash_profile bashrc bash_completion.d; do
