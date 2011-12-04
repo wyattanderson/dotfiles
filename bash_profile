@@ -8,7 +8,7 @@ esac
 
 # If the display hasn't been set already, i.e. via SSH X-forwarding,
 # set it to the remote host's primary display (this works for Xming)
-if [ -z $DISPLAY ] && [ -n $SSH_CLIENT ]; then
+if [ -z "$DISPLAY" ] && [ -n "$SSH_CLIENT" ]; then
     declare -x DISPLAY=`cut -d ' ' -f 1 <<< $SSH_CLIENT`:0.0
 fi
 
