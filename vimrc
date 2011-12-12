@@ -55,7 +55,6 @@ augroup END
 
 " Key mappings
 nmap <C-F4> :tabclose<CR>
-nmap <leader>n :NERDTreeToggle<CR>
 vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
 map <leader><space> :let @/=''<CR>
 inoremap kj <ESC>
