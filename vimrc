@@ -100,3 +100,6 @@ autocmd BufRead,BufNewFile /etc/nginx/conf.d/* set ft=nginx
 
 " Highlight VCS merge errors
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+syn keyword globalTodo TODO FIXME XXX contained
+hi def link globalTodo Todo
