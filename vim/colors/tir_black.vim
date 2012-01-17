@@ -56,7 +56,7 @@ hi Keyword guifg=#96CBFE ctermfg=117
 hi PreProc guifg=#96CBFE ctermfg=117 
 hi Conditional guifg=#6699CC ctermfg=110 
 
-hi Todo guifg=#000000 guibg=#cae682 ctermfg=0 ctermbg=195 
+hi link Todo ErrorMsg
 hi Constant guifg=#99CC99 ctermfg=151 
 
 hi Identifier guifg=#C6C5FE ctermfg=189 
