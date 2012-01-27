@@ -58,6 +58,7 @@ nmap <C-F4> :tabclose<CR>
 vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
 map <leader><space> :let @/=''<CR>
 inoremap kj <ESC>
+nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 
 " No arrow keys for you!
 inoremap <Up> <NOP>
@@ -103,3 +104,5 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 syn keyword globalTodo TODO FIXME XXX contained
 hi def link globalTodo Todo
+
+let NERDTreeDirArrows=0
