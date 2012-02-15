@@ -105,8 +105,8 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " Highlight lines longer than 80 characters as dark-red, lines longer than 90
 " characters as a brighter red.
 augroup vimrc_autocmds
-    autocmd BufEnter * highlight OverLength ctermbg=red guibg=#990000
-    autocmd BufEnter * highlight SortaOverLength ctermbg=red guibg=#330000
+    autocmd BufEnter * highlight OverLength ctermbg=124 guibg=#990000
+    autocmd BufEnter * highlight SortaOverLength ctermbg=52 guibg=#330000
     autocmd BufEnter * match SortaOverLength /\m\%>80v.*\%<91v/
     autocmd BufEnter * 2match OverLength /\m\%>90v.*/
 augroup END
