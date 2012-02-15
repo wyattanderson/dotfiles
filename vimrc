@@ -102,6 +102,15 @@ autocmd BufRead,BufNewFile /etc/nginx/conf.d/* set ft=nginx
 " Highlight VCS merge errors
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
+" Highlight lines longer than 80 characters as dark-red, lines longer than 90
+" characters as a brighter red.
+augroup vimrc_autocmds
+    autocmd BufEnter * highlight OverLength ctermbg=red guibg=#990000
+    autocmd BufEnter * highlight SortaOverLength ctermbg=red guibg=#330000
+    autocmd BufEnter * match SortaOverLength /\%>80v.*\%<91v.*\S$/
+    autocmd BufEnter * 2match OverLength /\%>90v.*/
+augroup END
+
 syn keyword globalTodo TODO FIXME XXX contained
 hi def link globalTodo Todo
 
