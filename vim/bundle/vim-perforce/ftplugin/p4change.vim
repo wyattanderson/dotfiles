@@ -8,4 +8,4 @@ setlocal noexpandtab
 setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal softtabstop=4
-:25 | :startinsert | :norm "_C
+:25 | :norm "_C
