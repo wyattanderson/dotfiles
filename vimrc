@@ -107,8 +107,8 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 augroup vimrc_autocmds
     autocmd BufEnter * highlight OverLength ctermbg=124 guibg=#990000
     autocmd BufEnter * highlight SortaOverLength ctermbg=52 guibg=#330000
-    autocmd BufEnter * match SortaOverLength /\m\%>80v.*\%<91v/
-    autocmd BufEnter * 2match OverLength /\m\%>90v.*/
+    autocmd BufEnter * match SortaOverLength /\m\%>80v.\%<91v/
+    autocmd BufEnter * 2match OverLength /\m\%>90v.\%<100v/
 augroup END
 
 syn keyword globalTodo TODO FIXME XXX contained
