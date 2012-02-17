@@ -39,7 +39,7 @@ set smartcase
 set wildmenu
 set laststatus=2
 set showbreak=>
-set textwidth=79
+set textwidth=78
 set formatoptions=croqnl1
 
 " Move swap files and stuff
@@ -48,10 +48,6 @@ if has("win32")
 else
    set directory=~/.vim/tmp,/tmp
 endif
-
-augroup mkd
-   autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
-augroup END
 
 " Key mappings
 nmap <C-F4> :tabclose<CR>
@@ -70,6 +66,47 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+set listchars=tab:>-,trail:?,eol:$
+nmap <silent> <leader>w :set nolist!<CR>
+
+let g:tskelUserName  = 'Wyatt Anderson'
+let g:tskelUserEmail = 'wanderson@gmail.com'
+let g:tskelUserWWW   = 'http://www.wyattanderson.com'
+let g:tskelLicense   = '(c) Wyatt Anderson - All Rights Reserved'
+
+autocmd BufRead,BufNewFile /etc/nginx/conf.d/* set ft=nginx
+
+" Highlight VCS merge errors
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+syn keyword globalTodo TODO FIXME XXX contained
+hi def link globalTodo Todo
+
+" Utility Functions
+if exists(':function') == 2
+    function! StatusLineTabWarning()
+        " return '[&et]' if &expandtab is set wrong
+        " return '[mixed-indenting]' if spaces and tabs are used to indent
+        " return an empty string if everything is fine
+        if !exists('b:statusline_tab_warning')
+            if &filetype == 'help' || &readonly == 1 || &modifiable == 0
+                let b:statusline_tab_warning = ''
+            else
+                let tabs = search('^\t', 'nw') != 0
+                let spaces = search('^ ', 'nw') != 0
+                if tabs && spaces
+                    let b:statusline_tab_warning = '[mixed-indenting]'
+                elseif (spaces && !&expandtab) || (tabs && &expandtab)
+                    let b:statusline_tab_warning = '[&et]'
+                else
+                    let b:statusline_tab_warning = ''
+                endif
+            endif
+        endif
+        return b:statusline_tab_warning
+    endfunction
+endif
+
 " statusline
 " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 " format markers:
@@ -87,31 +124,28 @@ noremap <Right> <NOP>
 "   %V current virtual column number (-n), if different from %c
 "   %P percentage through buffer
 "   %) end of width specification
-set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+set statusline=%<\ %n:%f\ %m%r%y%{StatusLineTabWarning()}%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 
-set listchars=tab:>-,trail:?,eol:$
-nmap <silent> <leader>w :set nolist!<CR>
+if has('autocmd')
+    augroup vimrc_autocmds
+        au!
+        " Highlight lines longer than 80 characters as dark-red, lines longer than 90
+        " characters as a brighter red.
+        autocmd BufEnter * highlight OverLength ctermbg=124 guibg=#990000
+        autocmd BufEnter * highlight SortaOverLength ctermbg=52 guibg=#330000
+        autocmd BufEnter * match SortaOverLength /\m\%>80v.\%<92v/
+        autocmd BufEnter * 2match OverLength /\m\%>90v.\%<140v/
 
-let g:tskelUserName  = 'Wyatt Anderson'
-let g:tskelUserEmail = 'wanderson@gmail.com'
-let g:tskelUserWWW   = 'http://www.wyattanderson.com'
-let g:tskelLicense   = '(c) Wyatt Anderson - All Rights Reserved'
+        " Clear the statusline tab warning at idle and post-buffer-write
+        autocmd CursorHold,BufWritePost * unlet! b:statusline_tab_warning
 
-autocmd BufRead,BufNewFile /etc/nginx/conf.d/* set ft=nginx
+        " Enable text wrapping for text files
+        autocmd BufRead,BufNewFile *.{txt,markdown,mkd,twiki} set formatoptions+=t
 
-" Highlight VCS merge errors
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+        " Formatting options for markdown files
+        autocmd BufRead *.{mkd,markdown} set ai formatoptions=tcroqn2 comments=n:&gt;
+    augroup END
 
-" Highlight lines longer than 80 characters as dark-red, lines longer than 90
-" characters as a brighter red.
-augroup vimrc_autocmds
-    autocmd BufEnter * highlight OverLength ctermbg=124 guibg=#990000
-    autocmd BufEnter * highlight SortaOverLength ctermbg=52 guibg=#330000
-    autocmd BufEnter * match SortaOverLength /\m\%>80v.\%<92v/
-    autocmd BufEnter * 2match OverLength /\m\%>90v.\%<140v/
-augroup END
-
-syn keyword globalTodo TODO FIXME XXX contained
-hi def link globalTodo Todo
+endif
 
 let NERDTreeDirArrows=0
