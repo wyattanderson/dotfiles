@@ -57,14 +57,14 @@ inoremap kj <ESC>
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 
 " No arrow keys for you!
-inoremap <Up> <NOP>
-inoremap <Down> <NOP>
-inoremap <Left> <NOP>
+inoremap <Up>    <NOP>
+inoremap <Down>  <NOP>
+inoremap <Left>  <NOP>
 inoremap <Right> <NOP>
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+noremap  <Up>    <NOP>
+noremap  <Down>  <NOP>
+noremap  <Left>  <NOP>
+noremap  <Right> <NOP>
 
 set listchars=tab:>-,trail:?,eol:$
 nmap <silent> <leader>w :set nolist!<CR>
