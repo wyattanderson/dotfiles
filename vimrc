@@ -129,13 +129,6 @@ set statusline=%<\ %n:%f\ %m%r%y%{StatusLineTabWarning()}%=%-35.(line:\ %l\ of\ 
 if has('autocmd')
     augroup vimrc_autocmds
         au!
-        " Highlight lines longer than 80 characters as dark-red, lines longer than 90
-        " characters as a brighter red.
-        autocmd BufEnter * highlight OverLength ctermbg=124 guibg=#990000
-        autocmd BufEnter * highlight SortaOverLength ctermbg=52 guibg=#330000
-        autocmd BufEnter * match SortaOverLength /\m\%>80v.\%<92v/
-        autocmd BufEnter * 2match OverLength /\m\%>90v.\%<140v/
-
         " Clear the statusline tab warning at idle and post-buffer-write
         autocmd CursorHold,BufWritePost * unlet! b:statusline_tab_warning
 
