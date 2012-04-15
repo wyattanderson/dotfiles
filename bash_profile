@@ -13,17 +13,6 @@ if [ -z "$DISPLAY" ] && [ -n "$SSH_CLIENT" ]; then
 fi
 
 # Set up EDITOR based on what's available
-case "$OSTYPE" in
-    linux-gnu)
-        if [ -n "$DISPLAY" ]; then
-            declare -x EDITOR="gvim -f"
-        fi
-        ;;
-    darwin11)
-        declare -x PATH="~/dotfiles/bin:$PATH"
-        declare -x EDITOR="mvim -f"
-        ;;
-esac
 if [ -z "$EDITOR" ]; then
     declare -x EDITOR=vim
 fi
