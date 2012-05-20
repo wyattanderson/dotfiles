@@ -9,6 +9,7 @@ the files contained herein and symlink them to the appropriate locations in
 the user's `$HOME` directory.
 
 Installation instructions:
+
 1. Check out a copy of the repository
 
     git clone https://wyattanderson@github.com/wyattanderson/dotfiles.git
