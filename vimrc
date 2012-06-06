@@ -74,7 +74,9 @@ let g:tskelUserEmail = 'wanderson@gmail.com'
 let g:tskelUserWWW   = 'http://www.wyattanderson.com'
 let g:tskelLicense   = '(c) Wyatt Anderson - All Rights Reserved'
 
+" Filetype associations
 autocmd BufRead,BufNewFile /etc/nginx/conf.d/* set ft=nginx
+autocmd BufRead,BufNewFile *.json set ft=javascript
 
 " Highlight VCS merge errors
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
