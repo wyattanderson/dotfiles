@@ -3,7 +3,7 @@ declare -x HISTCONTROL=ignoreboth
 
 # Set `color_prompt`
 case "$TERM" in
-    "xterm-color" | "xterm-256color") color_prompt=yes;;
+    "screen-256color" | "xterm-color" | "xterm-256color") color_prompt=yes;;
 esac
 
 # If the display hasn't been set already, i.e. via SSH X-forwarding,
