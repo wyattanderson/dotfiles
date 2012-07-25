@@ -126,7 +126,9 @@ endif
 "   %V current virtual column number (-n), if different from %c
 "   %P percentage through buffer
 "   %) end of width specification
-set statusline=%<\ %n:%f\ %m%r%y%{StatusLineTabWarning()}%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+" set statusline=%<\ %n:%f\ %m%r%y%{StatusLineTabWarning()}%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+
+let g:Powerline_symbols = 'fancy'
 
 if has('autocmd')
     augroup vimrc_autocmds
