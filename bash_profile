@@ -36,6 +36,8 @@ sed -e 's/justice/j/' \
     -e 's/unixdev/ud/' \
     -e 's/li237-186/li/' \
     -e 's/phoenix\.int\.wyattanderson\.com/ph/' \
+    -e 's/Wyatts-MacBook-Air\.local/vmba/' \
+    -e 's/d\.voxy\.com/d/' \
     <<< $HOSTNAME`
 short_username=`
 sed -e 's/wyatt/w/' \
