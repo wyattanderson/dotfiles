@@ -6,6 +6,8 @@ case "$TERM" in
     "screen-256color" | "xterm-color" | "xterm-256color") color_prompt=yes;;
 esac
 
+os=`uname -s`
+
 # If the display hasn't been set already, i.e. via SSH X-forwarding,
 # set it to the remote host's primary display (this works for Xming)
 if [ -z "$DISPLAY" ] && [ -n "$SSH_CLIENT" ]; then
@@ -15,6 +17,16 @@ fi
 # Set up EDITOR based on what's available
 if [ -z "$EDITOR" ]; then
     declare -x EDITOR=vim
+fi
+
+if [[ -s "$HOME/local/bin/" ]]; then
+    PATH=$HOME/local/bin:$PATH
+fi
+
+if [[ ${os} == "Linux" ]]; then
+    declare -x LANG='en_US.utf8'
+elif [[ ${os} == "Darwin" ]]; then
+    declare -x LANG='en_US.UTF-8'
 fi
 
 # Check the window size after each command
