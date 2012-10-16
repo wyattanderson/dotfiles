@@ -7,3 +7,4 @@
     st = status
 [color]
 	diff = auto
+	ui = auto
