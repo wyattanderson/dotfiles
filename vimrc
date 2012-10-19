@@ -56,6 +56,9 @@ map <leader><space> :let @/=''<CR>
 inoremap kj <ESC>
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 
+nnoremap <Tab> :tabnext<CR>
+nnoremap <S-Tab> :tabprev<CR>
+
 " No arrow keys for you!
 inoremap <Up>    <NOP>
 inoremap <Down>  <NOP>
