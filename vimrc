@@ -7,6 +7,7 @@ filetype plugin indent on
 set nocompatible
 syntax on
 
+" Fixes for xterm-256colors
 if &term =~ "xterm"
  set t_Co=256
  if has("terminfo")
@@ -41,6 +42,10 @@ set laststatus=2
 set showbreak=>
 set textwidth=78
 set formatoptions=croqnl1
+
+" Set `colorcolumn` for indicating `textwidth`
+set colorcolumn=+1
+hi ColorColumn ctermbg=52
 
 " Move swap files and stuff
 if has("win32")
@@ -87,65 +92,17 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 syn keyword globalTodo TODO FIXME XXX contained
 hi def link globalTodo Todo
 
-" Utility Functions
-if exists(':function') == 2
-    function! StatusLineTabWarning()
-        " return '[&et]' if &expandtab is set wrong
-        " return '[mixed-indenting]' if spaces and tabs are used to indent
-        " return an empty string if everything is fine
-        if !exists('b:statusline_tab_warning')
-            if &filetype == 'help' || &readonly == 1 || &modifiable == 0
-                let b:statusline_tab_warning = ''
-            else
-                let tabs = search('^\t', 'nw') != 0
-                let spaces = search('^ ', 'nw') != 0
-                if tabs && spaces
-                    let b:statusline_tab_warning = '[mixed-indenting]'
-                elseif (spaces && !&expandtab) || (tabs && &expandtab)
-                    let b:statusline_tab_warning = '[&et]'
-                else
-                    let b:statusline_tab_warning = ''
-                endif
-            endif
-        endif
-        return b:statusline_tab_warning
-    endfunction
-endif
-
-" statusline
-" cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-" format markers:
-"   %< truncation point
-"   %n buffer number
-"   %f relative path to file
-"   %m modified flag [+] (modified), [-] (unmodifiable) or nothing
-"   %r readonly flag [RO]
-"   %y filetype [ruby]
-"   %= split point for left and right justification
-"   %-35. width specification
-"   %l current line number
-"   %L number of lines in buffer
-"   %c current column number
-"   %V current virtual column number (-n), if different from %c
-"   %P percentage through buffer
-"   %) end of width specification
-" set statusline=%<\ %n:%f\ %m%r%y%{StatusLineTabWarning()}%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
-
 let g:Powerline_symbols = 'fancy'
 
 if has('autocmd')
     augroup vimrc_autocmds
         au!
-        " Clear the statusline tab warning at idle and post-buffer-write
-        autocmd CursorHold,BufWritePost * unlet! b:statusline_tab_warning
-
         " Enable text wrapping for text files
         autocmd BufRead,BufNewFile *.{txt,markdown,mkd,twiki} set formatoptions+=t
 
         " Formatting options for markdown files
         autocmd BufRead *.{mkd,markdown} set ai formatoptions=tcroqn2 comments=n:&gt;
     augroup END
-
 endif
 
 let NERDTreeDirArrows=0
