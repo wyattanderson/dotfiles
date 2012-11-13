@@ -20,3 +20,5 @@
 
 [merge]
 	tool = fugitive
+[rerere]
+	enabled = 1
