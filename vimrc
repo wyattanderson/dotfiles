@@ -45,7 +45,7 @@ set formatoptions=croqnl1
 
 " Set `colorcolumn` for indicating `textwidth`
 set colorcolumn=+1
-hi ColorColumn ctermbg=52
+hi ColorColumn ctermbg=232
 
 " Move swap files and stuff
 if has("win32")
