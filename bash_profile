@@ -75,7 +75,13 @@ if [ -f ~/.bash_completion.d/git-completion.bash ]; then
 fi
 
 # Calculate a short checksum of the real hostname to determine a unique color
-checksum=$(hostname -f | cksum | cut -c1-3)
+if [ "$os" == "SunOS" ]; then
+    hostname_cmd='hostname'
+else
+    hostname_cmd='hostname -f'
+fi
+
+checksum=$($hostname_cmd | cksum | cut -c1-3)
 if [ $TERM == "xterm-256color" ] || [ $TERM == "screen-256color" ]; then
     host_color="38;5;$((16 + $((checksum % 107)) * 2))";
 else
