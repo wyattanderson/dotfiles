@@ -43,6 +43,9 @@ set showbreak=>
 set textwidth=78
 set formatoptions=croqnl1
 
+" Enable xterm mouse support
+set mouse=a
+
 " Set `colorcolumn` for indicating `textwidth`
 set colorcolumn=+1
 hi ColorColumn ctermbg=233
