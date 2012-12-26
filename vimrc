@@ -43,6 +43,10 @@ set showbreak=>
 set textwidth=78
 set formatoptions=croqnl1
 
+if has("xterm_clipboard")
+    set clipboard=unnamedplus
+endif
+
 " Enable xterm mouse support
 set mouse=a
 
