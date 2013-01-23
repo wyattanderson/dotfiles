@@ -22,3 +22,5 @@
 	tool = fugitive
 [rerere]
 	enabled = 1
+[diff]
+	tool = vimdiff
