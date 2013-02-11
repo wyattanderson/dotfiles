@@ -50,9 +50,11 @@ endif
 " Enable xterm mouse support
 set mouse=a
 
-" Set `colorcolumn` for indicating `textwidth`
-set colorcolumn=+1
-hi ColorColumn ctermbg=233
+if version >= 703
+    " Set `colorcolumn` for indicating `textwidth`
+    set colorcolumn=+1
+    hi ColorColumn ctermbg=233
+endif
 
 " Move swap files and stuff
 if has("win32")
