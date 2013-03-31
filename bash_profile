@@ -31,6 +31,7 @@ fi
 
 # Check the window size after each command
 shopt -s checkwinsize
+shopt -s histappend
 
 [ -z  "$PS1" ] && return
 
@@ -69,10 +70,11 @@ if [ -e /etc/fds/prod ] || [ $USER == "root" ]; then
     red_flag='37;41'
 fi
 
-if [ -f ~/.bash_completion.d/git-completion.bash ]; then
-    source ~/.bash_completion.d/git-completion.bash
-    declare -x GIT_PS1_SHOWDIRTYSTATE=1
-fi
+source ~/.bash_completion.d/git-completion.bash
+source ~/dotfiles/git-prompt.sh
+
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
 
 # Calculate a short checksum of the real hostname to determine a unique color
 if [ "$os" == "SunOS" ]; then

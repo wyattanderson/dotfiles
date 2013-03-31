@@ -42,6 +42,7 @@ set laststatus=2
 set showbreak=>
 set textwidth=78
 set formatoptions=croqnl1
+set cursorline
 
 if has("xterm_clipboard")
     set clipboard=unnamedplus
@@ -115,3 +116,9 @@ if has('autocmd')
 endif
 
 let NERDTreeDirArrows=0
+
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = {
+    \ 'dir': '\v[\/](shared|static\/assets|research|node_modules|static\/js)$',
+    \ 'file': '\v\.(pyc)',
+    \ }
