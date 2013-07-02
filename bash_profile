@@ -23,6 +23,10 @@ if [[ -s "$HOME/local/bin/" ]]; then
     PATH=$HOME/local/bin:$PATH
 fi
 
+if [[ -s "/usr/local/go/bin" ]]; then
+    PATH=$PATH:/usr/local/go/bin
+fi
+
 if [[ ${os} == "Linux" ]]; then
     declare -x LANG='en_US.utf8'
 elif [[ ${os} == "Darwin" ]]; then
