@@ -96,8 +96,6 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 syn keyword globalTodo TODO FIXME XXX contained
 hi def link globalTodo Todo
 
-let g:Powerline_symbols = 'fancy'
-
 if has('autocmd')
     augroup vimrc_autocmds
         au!
@@ -116,3 +114,4 @@ let g:ctrlp_custom_ignore = {
     \ 'dir': '\v[\/](shared|static\/assets|research|node_modules|static\/js)$',
     \ 'file': '\v\.(pyc)',
     \ }
+let g:airline_powerline_fonts = 1

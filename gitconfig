@@ -10,6 +10,7 @@
     mff = merge --ff-only
     mnff = merge --no-ff
     pff = pull --ff-only
+    po = push origin
 
 [color]
 	diff = auto
