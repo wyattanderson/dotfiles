@@ -44,10 +44,6 @@ set textwidth=78
 set formatoptions=croqnl1
 set cursorline
 
-if has("xterm_clipboard")
-    set clipboard=unnamedplus
-endif
-
 " Enable xterm mouse support
 set mouse=a
 
