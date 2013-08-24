@@ -55,6 +55,7 @@ sed -e 's/justice/j/' \
     -e 's/phoenix\.int\.wyattanderson\.com/ph/' \
     -e 's/Wyatts-MacBook-Air\.local/vmba/' \
     -e 's/d\.voxy\.com/d/' \
+    -e 's/mba.int.wyattanderson.com/mba/' \
     <<< $HOSTNAME`
 short_username=`
 sed -e 's/wyatt/w/' \
