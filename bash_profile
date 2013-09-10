@@ -99,6 +99,12 @@ declare -x PS1='\[\e[1;30m\]\!\[\e[0m\] \[\e[${user_color}m\]$short_username\[\e
 
 alias ll='ls -lh'
 
+# SSH to a remote machine and attach the first available tmux session
+rtma ()
+{
+    ssh -A -t $1 tmux at
+}
+
 if [ -r ~/.bashrc-local ]; then
     source ~/.bashrc-local
 fi
