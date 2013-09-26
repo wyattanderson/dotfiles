@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*- 
-import colortrans
 import colorsys
+import colortrans
 import sys
 
 LIGHTNESS_FACTOR = 1.7
@@ -11,11 +11,20 @@ def rgbhex_to_components(hexcolor):
             for s in xrange(0, len(hexcolor), 2)]
 
 def get_contrast_yiq(hexcolor):
+    """Based on this calculation:
+
+    http://24ways.org/2010/calculating-color-contrast/
+
+    Determines the optimal text color (either white or black) for the given
+    hexcolor background."""
     r, g, b = rgbhex_to_components(hexcolor)
     yiq = ((r*299)+(g*587)+(b*114))/1000
     return 'black' if yiq >=128 else 'colour15'
 
 def transform_rgb(hexcolor, factor):
+    """Converts hexadecimal color string to its hue, lightness and saturation
+    components and applies factor to the lightness value to either lighten or
+    darken the color"""
     r, g, b = rgbhex_to_components(hexcolor)
     r /= 255.0
     g /= 255.0
