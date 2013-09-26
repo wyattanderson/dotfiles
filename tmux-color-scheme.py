@@ -3,7 +3,7 @@ import colortrans
 import colorsys
 import sys
 
-LIGHTNESS_FACTOR = 1.5
+LIGHTNESS_FACTOR = 1.7
 DARKNESS_FACTOR = .5
 
 def rgbhex_to_components(hexcolor):
@@ -13,7 +13,7 @@ def rgbhex_to_components(hexcolor):
 def get_contrast_yiq(hexcolor):
     r, g, b = rgbhex_to_components(hexcolor)
     yiq = ((r*299)+(g*587)+(b*114))/1000
-    return 'white' if yiq >=128 else 'black'
+    return 'black' if yiq >=128 else 'colour15'
 
 def transform_rgb(hexcolor, factor):
     r, g, b = rgbhex_to_components(hexcolor)
