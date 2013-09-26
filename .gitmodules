@@ -34,3 +34,6 @@
 [submodule "vim/bundle/vim-jade"]
 	path = vim/bundle/vim-jade
 	url = git@github.com:digitaltoad/vim-jade.git
+[submodule "vim/bundle/python-mode"]
+	path = vim/bundle/python-mode
+	url = git@github.com:klen/python-mode.git

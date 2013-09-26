@@ -111,3 +111,7 @@ let g:ctrlp_custom_ignore = {
     \ 'file': '\v\.(pyc)',
     \ }
 let g:airline_powerline_fonts = 1
+
+let g:pymode_lint_write = 0
+let g:pymode_utils_whitespaces = 0
+let g:pymode_folding = 0
