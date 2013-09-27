@@ -57,9 +57,9 @@ source-file ~/.tmux.conf
 set -g status-bg {bg}
 set -g pane-active-border-fg {cbg}
 set -g status-left '#[fg=colour235,bg=colour252,bold] ❐ #S #[fg=colour252,bg=colour238,nobold]#[fg=colour245,bg=colour238,bold] #(whoami) #[fg=colour238,bg={bg},nobold]'
-set -g status-right '#[fg=colour238]⮂#[fg=colour252,bg=colour238,nobold] #H ⮂#[fg=colour235,bg=colour252,bold] %c'
+set -g status-right '#[fg=colour238]#[fg=colour252,bg=colour238,nobold] #H #[fg=colour235,bg=colour252,bold] %c'
 set -g window-status-format "#[fg={fg},bg={bg}] #I #W "
-set -g window-status-current-format "#[fg={bg},bg={cbg}]#[fg={cfg},bg={cbg},noreverse,bold] #I ⮁ #W #[fg={cbg},bg={bg},nobold]"
+set -g window-status-current-format "#[fg={bg},bg={cbg}]#[fg={cfg},bg={cbg},noreverse,bold] #I  #W #[fg={cbg},bg={bg},nobold]"
     """.format(
             fg=text_color,
             bg=bg,
