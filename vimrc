@@ -59,6 +59,7 @@ nmap <C-F4> :tabclose<CR>
 vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
 map <leader><space> :let @/=''<CR>
 inoremap kj <ESC>
+inoremap zkj <ESC>:w<CR>
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 
 nnoremap <Tab> :tabnext<CR>
