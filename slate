@@ -26,7 +26,4 @@ bind left:ctrl;alt;cmd  throw left  resize
 bind up:ctrl;alt;cmd    throw up    resize
 bind down:ctrl;alt;cmd  throw down  resize
 
-# Window Hints
-bind esc:cmd hint
-
 bind =:cmd;alt move screenOriginX;screenOriginY screenSizeX;screenSizeY
