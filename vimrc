@@ -108,11 +108,13 @@ let NERDTreeDirArrows=0
 
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/](shared|static\/assets|research|node_modules|static\/js)$',
     \ 'file': '\v\.(pyc)',
     \ }
 let g:airline_powerline_fonts = 1
 
-let g:pymode_lint_write = 0
-let g:pymode_utils_whitespaces = 0
+let g:pymode_doc = 0
 let g:pymode_folding = 0
+let g:pymode_lint_on_write = 0
+let g:pymode_rope_complete_on_dot = 0
+let g:pymode_rope_goto_definition_cmd = 'vnew'
+let g:pymode_utils_whitespaces = 0
