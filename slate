@@ -5,11 +5,17 @@ config defaultToCurrentScreen true
 config nudgePercentOf screenSize
 config resizePercentOf screenSize
 
-# Push Bindings
+# Push Bindings for half-size windows
 bind right:ctrl;cmd  push right bar-resize:screenSizeX/2
 bind left:ctrl;cmd   push left  bar-resize:screenSizeX/2
 bind up:ctrl;cmd     push up    bar-resize:screenSizeY/2
 bind down:ctrl;cmd   push down  bar-resize:screenSizeY/2
+
+# Quarter-size windows
+bind right:ctrl;cmd;shift move screenOriginX+(screenSizeX/2);screenOriginY                 screenSizeX/2;screenSizeY/2
+bind down:ctrl;cmd;shift  move screenOriginX+(screenSizeX/2);screenOriginY+(screenSizeY/2) screenSizeX/2;screenSizeY/2
+bind up:ctrl;cmd;shift    move screenOriginX;screenOriginY                                 screenSizeX/2;screenSizeY/2
+bind left:ctrl;cmd;shift  move screenOriginX;screenOriginY+(screenSizeY/2)                 screenSizeX/2;screenSizeY/2
 
 # Nudge Bindings
 bind right:shift;alt nudge +10% +0
