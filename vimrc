@@ -115,6 +115,11 @@ let g:airline_powerline_fonts = 1
 let g:pymode_doc = 0
 let g:pymode_folding = 0
 let g:pymode_lint_on_write = 0
-let g:pymode_rope_complete_on_dot = 0
-let g:pymode_rope_goto_definition_cmd = 'vnew'
+let g:pymode_rope = 0
+let g:pymode_run = 0
 let g:pymode_utils_whitespaces = 0
+
+let g:jedi#popup_on_dot = 0
+let g:jedi#show_call_signatures = 0
+let g:jedi#use_splits_not_buffers = 'left'
+let g:jedi#use_tabs_not_buffers = 0
