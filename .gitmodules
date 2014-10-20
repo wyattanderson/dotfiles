@@ -40,3 +40,6 @@
 [submodule "vim/bundle/jedi-vim"]
 	path = vim/bundle/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim.git
+[submodule "vim/bundle/arcanist.vim"]
+	path = vim/bundle/arcanist.vim
+	url = https://github.com/solarnz/arcanist.vim.git
