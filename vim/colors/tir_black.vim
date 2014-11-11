@@ -128,3 +128,5 @@ hi link javaScriptNumber Number
 
 " Special for CSharp
 hi link csXmlTag Keyword 
+
+hi ColorColumn guibg=#121212 gui=none ctermbg=234 cterm=none

@@ -19,8 +19,6 @@ if &term =~ "xterm"
  endif
 endif
 
-colorscheme tir_black
-
 let mapleader = ","
 
 set tabstop=4
@@ -43,6 +41,10 @@ set showbreak=>
 set textwidth=78
 set formatoptions=croqnl1
 set cursorline
+
+if exists('+colorcolumn')
+    set colorcolumn=+1
+endif
 
 " Enable xterm mouse support
 set mouse=a
@@ -123,3 +125,6 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 0
 let g:jedi#use_splits_not_buffers = 'left'
 let g:jedi#use_tabs_not_buffers = 0
+
+colorscheme tir_black
+
