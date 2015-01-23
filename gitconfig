@@ -11,6 +11,7 @@
     mnff = merge --no-ff
     pff = pull --ff-only
     po = push origin
+    rbia = rebase -i --autosquash
 
 [color]
 	diff = auto

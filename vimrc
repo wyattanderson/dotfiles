@@ -43,7 +43,7 @@ set formatoptions=croqnl1
 set cursorline
 
 if exists('+colorcolumn')
-    set colorcolumn=+1
+    set colorcolumn=+1,120
 endif
 
 " Enable xterm mouse support
@@ -126,5 +126,5 @@ let g:jedi#show_call_signatures = 0
 let g:jedi#use_splits_not_buffers = 'left'
 let g:jedi#use_tabs_not_buffers = 0
 
-colorscheme tir_black
-
+colorscheme solarized
+set background=dark
