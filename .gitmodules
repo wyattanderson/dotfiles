@@ -43,3 +43,12 @@
 [submodule "vim/bundle/arcanist.vim"]
 	path = vim/bundle/arcanist.vim
 	url = https://github.com/solarnz/arcanist.vim.git
+[submodule "vim/bundle/vim-aurora"]
+	path = vim/bundle/vim-aurora
+	url = https://github.com/kevints/vim-aurora-syntax.git
+[submodule "vim/bundle/vim-yaml"]
+	path = vim/bundle/vim-yaml
+	url = https://github.com/stephpy/vim-yaml.git
+[submodule "vim/bundle/vim-pants"]
+	path = vim/bundle/vim-pants
+	url = https://github.com/pantsbuild/vim-pants.git
