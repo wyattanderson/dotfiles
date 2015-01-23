@@ -12,6 +12,7 @@
     pff = pull --ff-only
     po = push origin
     rbia = rebase -i --autosquash
+    sl = stash list
 
 [color]
 	diff = auto
