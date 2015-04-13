@@ -52,3 +52,6 @@
 [submodule "vim/bundle/vim-pants"]
 	path = vim/bundle/vim-pants
 	url = https://github.com/pantsbuild/vim-pants.git
+[submodule "vim/bundle/vim-jsx"]
+	path = vim/bundle/vim-jsx
+	url = git@github.com:mxw/vim-jsx.git

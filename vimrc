@@ -80,11 +80,6 @@ noremap  <Right> <NOP>
 set listchars=tab:>-,trail:?,eol:$
 nmap <silent> <leader>w :set nolist!<CR>
 
-let g:tskelUserName  = 'Wyatt Anderson'
-let g:tskelUserEmail = 'wanderson@gmail.com'
-let g:tskelUserWWW   = 'http://www.wyattanderson.com'
-let g:tskelLicense   = '(c) Wyatt Anderson - All Rights Reserved'
-
 " Filetype associations
 autocmd BufRead,BufNewFile /etc/nginx/conf.d/* set ft=nginx
 autocmd BufRead,BufNewFile *.json set ft=javascript
@@ -110,6 +105,7 @@ let NERDTreeDirArrows=0
 
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
+    \ 'dir': 'dist$\|node_modules$\|\.git',
     \ 'file': '\v\.(pyc)',
     \ }
 let g:airline_powerline_fonts = 1
