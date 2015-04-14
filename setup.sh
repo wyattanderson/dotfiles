@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Update and init submodules
-git submodule update --init
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
 
 # Iterate over the list of setup files we want to alias from our dotfile
 # distribution
