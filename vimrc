@@ -1,10 +1,29 @@
-" Load pathogen
-filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
-filetype plugin indent on
 set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Vundles
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'solarnz/arcanist.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'klen/python-mode'
+Plugin 'bling/vim-airline'
+Plugin 'kevints/vim-aurora-syntax'
+Plugin 'tpope/vim-commentary'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'tpope/vim-surround'
+Plugin 'stephpy/vim-yaml'
+Plugin 'altercation/solarized', {'rtp': 'vim-colors-solarized/'}
+
+call vundle#end()
+filetype plugin indent on
 syntax on
 
 " Fixes for xterm-256colors
