@@ -1,10 +1,13 @@
 set nocompatible
 filetype off
 
+" ---------------------------------------------------------------------------
+" Vundle setup
+" ---------------------------------------------------------------------------
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" Vundles
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'solarnz/arcanist.vim'
@@ -24,6 +27,11 @@ Plugin 'altercation/solarized', {'rtp': 'vim-colors-solarized/'}
 
 call vundle#end()
 filetype plugin indent on
+
+" ---------------------------------------------------------------------------
+" Everything else
+" ---------------------------------------------------------------------------
+
 syntax on
 
 " Fixes for xterm-256colors
@@ -50,7 +58,7 @@ set copyindent
 set number
 set hlsearch
 set ruler
-set novb
+set novisualbell
 set backspace=indent,eol,start
 set ignorecase
 set smartcase
@@ -78,7 +86,7 @@ endif
 " Key mappings
 nmap <C-F4> :tabclose<CR>
 vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
-map <leader><space> :let @/=''<CR>
+map <silent> <leader><space> :let @/=''<CR>
 inoremap kj <ESC>
 inoremap zkj <ESC>:w<CR>
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
