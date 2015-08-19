@@ -1,0 +1,6 @@
+--ignore-directory=is:assets
+--ignore-directory=is:.sass-cache
+--ignore-directory=is:node_modules
+--ignore-directory=is:.ropeproject
+--ignore-file=ext:pyc
+--type-set=pantsbuild:is:BUILD

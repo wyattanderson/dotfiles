@@ -5,7 +5,7 @@ vim +PluginInstall +qall
 
 # Iterate over the list of setup files we want to alias from our dotfile
 # distribution
-for file in vimrc gvimrc vim bash_profile bashrc bash_completion.d tmux.conf gitconfig slate; do
+for file in ackrc vimrc gvimrc vim bash_profile bashrc bash_completion.d tmux.conf gitconfig slate; do
    # Check to see if the file already has a symlink. If it does, we won't touch
    # it.
    if [ ! -h ~/.${file} ]; then
