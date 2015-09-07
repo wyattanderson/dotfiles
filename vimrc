@@ -25,6 +25,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'stephpy/vim-yaml'
 Plugin 'altercation/solarized', {'rtp': 'vim-colors-solarized/'}
 Plugin 'solarnz/thrift.vim'
+Plugin 'wting/rust.vim'
 
 call vundle#end()
 filetype plugin indent on
