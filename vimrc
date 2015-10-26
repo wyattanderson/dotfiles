@@ -11,7 +11,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'solarnz/arcanist.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'klen/python-mode'
@@ -135,10 +136,9 @@ endif
 let NERDTreeDirArrows=0
 
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = {
-    \ 'dir': 'dist$\|node_modules$\|\.git',
-    \ 'file': '\v\.(pyc)',
-    \ }
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+
 let g:airline_powerline_fonts = 1
 
 let g:pymode_doc = 0
