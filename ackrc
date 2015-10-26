@@ -4,3 +4,4 @@
 --ignore-directory=is:.ropeproject
 --ignore-file=ext:pyc
 --type-set=pantsbuild:is:BUILD
+--type-set=js:ext:jsx
