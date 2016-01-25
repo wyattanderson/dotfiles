@@ -27,6 +27,7 @@ Plugin 'altercation/solarized', {'rtp': 'vim-colors-solarized/'}
 Plugin 'solarnz/thrift.vim'
 Plugin 'wting/rust.vim'
 Plugin 'wyattanderson/salt-vim'
+Plugin 'a.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -151,6 +152,9 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 0
 let g:jedi#use_splits_not_buffers = 'left'
 let g:jedi#use_tabs_not_buffers = 0
+
+let g:alternateExtensions_jsx = "scss"
+let g:alternateExtensions_scss = "jsx"
 
 colorscheme solarized
 set background=dark
