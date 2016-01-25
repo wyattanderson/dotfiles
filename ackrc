@@ -2,6 +2,7 @@
 --ignore-directory=is:.sass-cache
 --ignore-directory=is:node_modules
 --ignore-directory=is:.ropeproject
+--ignore-directory=is:.pants.d
 --ignore-file=ext:pyc
 --type-set=pantsbuild:is:BUILD
 --type-set=js:ext:jsx
