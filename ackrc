@@ -5,4 +5,4 @@
 --ignore-directory=is:.pants.d
 --ignore-file=ext:pyc
 --type-set=pantsbuild:is:BUILD
---type-set=js:ext:jsx
+--type-add=js:ext:jsx
