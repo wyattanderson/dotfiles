@@ -29,6 +29,7 @@ Plugin 'solarnz/thrift.vim'
 Plugin 'wting/rust.vim'
 Plugin 'wyattanderson/salt-vim'
 Plugin 'a.vim'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 filetype plugin indent on

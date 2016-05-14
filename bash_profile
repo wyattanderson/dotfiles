@@ -118,6 +118,6 @@ if [ -r ~/.bashrc-local ]; then
     source ~/.bashrc-local
 fi
 
-if [ -f `which virtualenvwrapper.sh` ]; then
+if [ -f virtualenvwrapper.sh ]; then
     source virtualenvwrapper.sh
 fi
