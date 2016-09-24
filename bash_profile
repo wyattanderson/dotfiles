@@ -3,7 +3,7 @@ declare -x HISTCONTROL=ignoreboth
 
 # Set `color_prompt`
 case "$TERM" in
-    "screen-256color" | "xterm-color" | "xterm-256color") color_prompt=yes;;
+    "rxvt-unicode-256color" | "screen-256color" | "xterm-color" | "xterm-256color") color_prompt=yes;;
 esac
 
 os=`uname -s`
@@ -64,10 +64,8 @@ sed -e 's/wyatt/w/' \
 
 if [ $short_username == $USER ]; then
     user_color='1;31' # red for non-wyatt user
-elif [ "$TERM_PROGRAM" == "Apple_Terminal" ]; then
-    user_color='0;37' # "light gray" for OS X terminal
 else
-    user_color='1;30' # dark gray
+    user_color='0;37' # light gray
 fi
 
 red_flag='0'
@@ -89,13 +87,13 @@ else
 fi
 
 checksum=$($hostname_cmd | cksum | cut -c1-3)
-if [ $TERM == "xterm-256color" ] || [ $TERM == "screen-256color" ]; then
+if [ $color_prompt ]; then
     host_color="38;5;$((16 + $((checksum % 107)) * 2))";
 else
     host_color="1;$((checksum % 6))";
 fi
 
-declare -x PS1='\[\e[1;30m\]\!\[\e[0m\] \[\e[${user_color}m\]$short_username\[\e[0m\]@\[\e[${host_color}m\]$short_host\[\e[0m\]:\[\e[${red_flag}m\]\W\[\e[0m\]\$$(__git_ps1 " (%s)") '
+declare -x PS1='\[\e[0;37m\]\!\[\e[0m\] \[\e[${user_color}m\]$short_username\[\e[0m\]@\[\e[${host_color}m\]$short_host\[\e[0m\]:\[\e[${red_flag}m\]\W\[\e[0m\]\$$(__git_ps1 " (%s)") '
 
 alias ll='ls -lh'
 
