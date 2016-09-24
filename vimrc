@@ -154,8 +154,12 @@ let g:jedi#show_call_signatures = 0
 let g:jedi#use_splits_not_buffers = 'left'
 let g:jedi#use_tabs_not_buffers = 0
 
-let g:alternateExtensions_jsx = "scss"
+let g:alternateExtensions_jsx = "scss,css"
+let g:alternateExtensions_js = "scss,css"
+let g:alternateExtensions_css = "jsx,js"
 let g:alternateExtensions_scss = "jsx"
+
+let g:jsx_ext_required = 0
 
 colorscheme solarized
 set background=dark
