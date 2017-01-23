@@ -30,6 +30,8 @@ Plugin 'wting/rust.vim'
 Plugin 'wyattanderson/salt-vim'
 Plugin 'a.vim'
 Plugin 'fatih/vim-go'
+Plugin 'b4b4r07/vim-hcl'
+Plugin 'cespare/vim-toml'
 
 call vundle#end()
 filetype plugin indent on
@@ -74,6 +76,7 @@ set showbreak=>
 set textwidth=78
 set formatoptions=croqnl1
 set cursorline
+set backupcopy=yes
 
 if exists('+colorcolumn')
     set colorcolumn=+1,120
