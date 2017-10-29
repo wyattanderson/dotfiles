@@ -100,7 +100,7 @@ alias ll='ls -lh'
 # SSH to a remote machine and attach the first available tmux session
 rtma ()
 {
-    ssh -A -t $1 tmux at
+    ssh -A -t $1 "tmux attach || tmux new"
 }
 
 # Predictable SSH authentication socket location.
