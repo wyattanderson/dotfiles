@@ -1,5 +1,10 @@
+plug.vim := ${HOME}/.vim/autoload/plug.vim
+
 .PHONY: all
-all: dotfiles
+all: dotfiles vim
+
+.PHONY: vim
+vim: $(plug.vim)
 
 .PHONY: dotfiles
 dotfiles:
@@ -8,3 +13,7 @@ dotfiles:
 		f=$$(basename $$file); \
 		ln -sfn $(CURDIR)/$$file $(HOME)/$$f; \
 	done;
+
+$(plug.vim):
+	curl -fLo $@ --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
