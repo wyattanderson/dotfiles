@@ -5,9 +5,22 @@ filetype plugin indent on
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'
+Plug 'altercation/solarized', {'rtp': 'vim-colors-solarized/'}
+
+Plug 'solarnz/arcanist.vim'
+Plug 'bling/vim-airline'
+Plug 'kevints/vim-aurora-syntax'
+Plug 'tpope/vim-commentary'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'tpope/vim-surround'
+Plug 'stephpy/vim-yaml'
+Plug 'solarnz/thrift.vim'
+Plug 'wting/rust.vim'
+Plug 'fatih/vim-go'
+Plug 'b4b4r07/vim-hcl'
+Plug 'cespare/vim-toml'
 
 call plug#end()
-
 
 syntax on
 
@@ -59,3 +72,6 @@ noremap  <Up>    <NOP>
 noremap  <Down>  <NOP>
 noremap  <Left>  <NOP>
 noremap  <Right> <NOP>
+
+colorscheme solarized
+set background=dark
