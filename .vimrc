@@ -30,3 +30,9 @@ inoremap kj <ESC>
 inoremap zkj <ESC>:w<CR>
 
 filetype plugin indent on
+
+let mapleader = ","
+
+set listchars=tab:>-,trail:?,eol:$
+nmap <silent> <leader>w :set nolist!<CR>
+
