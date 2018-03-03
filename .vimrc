@@ -18,6 +18,7 @@ Plug 'wting/rust.vim'
 Plug 'fatih/vim-go'
 Plug 'b4b4r07/vim-hcl'
 Plug 'cespare/vim-toml'
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
@@ -81,3 +82,9 @@ endif
 
 
 let g:airline_powerline_fonts = 1
+
+if executable('rg')
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_use_caching = 0
+endif
