@@ -20,6 +20,9 @@ Plug 'b4b4r07/vim-hcl'
 Plug 'cespare/vim-toml'
 Plug 'ctrlpvim/ctrlp.vim'
 
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
 call plug#end()
 
 syntax on
@@ -72,6 +75,10 @@ noremap  <Up>    <NOP>
 noremap  <Down>  <NOP>
 noremap  <Left>  <NOP>
 noremap  <Right> <NOP>
+
+" Set up shortcut for toggling number modes since numbertoggle doesn't do it
+" for us anymore
+nnoremap <silent> <C-n> :set relativenumber!<cr>
 
 colorscheme solarized
 set background=dark
