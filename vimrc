@@ -32,6 +32,8 @@ Plugin 'a.vim'
 Plugin 'fatih/vim-go'
 Plugin 'b4b4r07/vim-hcl'
 Plugin 'cespare/vim-toml'
+Plugin 'junegunn/goyo.vim'
+Plugin 'prettier/vim-prettier'
 
 call vundle#end()
 filetype plugin indent on
