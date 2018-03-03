@@ -6,7 +6,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'
 Plug 'altercation/solarized', {'rtp': 'vim-colors-solarized/'}
-
 Plug 'solarnz/arcanist.vim'
 Plug 'bling/vim-airline'
 Plug 'kevints/vim-aurora-syntax'
@@ -75,3 +74,10 @@ noremap  <Right> <NOP>
 
 colorscheme solarized
 set background=dark
+
+if exists('+colorcolumn')
+    set colorcolumn=+1,120
+endif
+
+
+let g:airline_powerline_fonts = 1

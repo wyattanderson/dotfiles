@@ -1,10 +1,8 @@
 plug.vim := ${HOME}/.vim/autoload/plug.vim
+git-prompt.sh := ${HOME}/.git-prompt.sh
 
 .PHONY: all
-all: dotfiles vim
-
-.PHONY: vim
-vim: $(plug.vim)
+all: dotfiles $(plug.vim) $(git-prompt.sh)
 
 .PHONY: dotfiles
 dotfiles:
@@ -17,3 +15,7 @@ dotfiles:
 $(plug.vim):
 	curl -fLo $@ --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+$(git-prompt.sh):
+	curl -fLo $@ \
+		https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh

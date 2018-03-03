@@ -1,0 +1,34 @@
+#!/bin/bash
+
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+
+case "$TERM" in
+    "rxvt-unicode-256color" | "screen-256color" | "xterm-color" | "xterm-256color") color_prompt=yes;;
+esac
+
+short_username=`
+sed -e 's/wyatt/w/' \
+    -e 's/wanderson/wa/' \
+    <<< $USER`
+
+if [ $short_username == $USER ]; then
+    user_color='1;31' # red for non-wyatt user
+else
+    user_color='0;37' # light gray
+fi
+
+
+red_flag='0'
+if [ $USER == "root" ]; then
+    red_flag='37;41'
+fi
+
+checksum=$(hostname | cksum | cut -c1-3)
+if [ $color_prompt ]; then
+    host_color="38;5;$((16 + $((checksum % 107)) * 2))";
+else
+    host_color="1;$((checksum % 6))";
+fi
+
+declare -x PS1='\[\e[${user_color}m\]$short_username\[\e[0m\]@\[\e[${host_color}m\]\h\[\e[0m\]:\[\e[${red_flag}m\]\W\[\e[0m\]\$$(__git_ps1 " (%s)") '
