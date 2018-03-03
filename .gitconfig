@@ -1,0 +1,33 @@
+[alias]
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    st = status
+    co = checkout
+    cob = checkout -b
+    mff = merge --ff-only
+    mnff = merge --no-ff
+    pff = pull --ff-only
+    po = push origin
+    rbia = rebase -i --autosquash
+    sl = stash list
+
+[color]
+	diff = auto
+	ui = auto
+
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+
+[merge]
+	tool = fugitive
+
+[rerere]
+	enabled = 1
+
+[diff]
+	tool = vimdiff
+
+[core]
+	excludesfile = ~/.gitignore_global
+
+[help]
+	autocorrect = 1
