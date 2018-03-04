@@ -25,9 +25,9 @@ Plug 'mxw/vim-jsx'
 Plug 'prettier/vim-prettier'
 
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'roxma/nvim-completion-manager'
+    Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 endif
-let g:deoplete#enable_at_startup = 1
 
 call plug#end()
 
