@@ -22,6 +22,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'prettier/vim-prettier'
 
 call plug#end()
 
@@ -80,7 +81,7 @@ noremap  <Right> <NOP>
 " for us anymore
 nnoremap <silent> <C-n> :set relativenumber!<cr>
 
-colorscheme solarized
+silent! colorscheme solarized
 set background=dark
 
 if exists('+colorcolumn')
