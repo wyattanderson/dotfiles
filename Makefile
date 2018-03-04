@@ -1,9 +1,19 @@
-plug.vim := ${HOME}/.vim/autoload/plug.vim
+VIM_DIR ?= ${HOME}/.vim
+
+plug.vim := $(VIM_DIR)/autoload/plug.vim
 git-prompt.sh := ${HOME}/.git-prompt.sh
 git-completion.bash := ${HOME}/.git-completion.bash
+init.vim := ${HOME}/.config/nvim/init.vim
 
 .PHONY: all
 all: dotfiles $(plug.vim) $(git-prompt.sh) $(git-completion.bash)
+
+.PHONY: neovim
+neovim: $(init.vim)
+
+$(init.vim):
+	mkdir -p $$(dirname $(init.vim))
+	ln -sfn $(CURDIR)/.vimrc $(init.vim) 
 
 .PHONY: dotfiles
 dotfiles:
