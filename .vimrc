@@ -2,7 +2,7 @@ set nocompatible
 filetype off
 filetype plugin indent on
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim-plug')
 
 Plug 'tpope/vim-fugitive'
 Plug 'altercation/solarized', {'rtp': 'vim-colors-solarized/'}
@@ -19,6 +19,7 @@ Plug 'fatih/vim-go'
 Plug 'b4b4r07/vim-hcl'
 Plug 'cespare/vim-toml'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'davidhalter/jedi-vim'
 
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -59,9 +60,6 @@ set relativenumber
 set showmatch
 set mouse=a
 
-" http://blog.ryankelly.us/2016/07/30/vim-backupcopy-webpack-dev-server.html
-set backupcopy=yes
-
 inoremap kj <ESC>
 inoremap zkj <ESC>:w<CR>
 
@@ -97,8 +95,13 @@ endif
 
 let g:airline_powerline_fonts = 1
 
-" if executable('rg')
-"   set grepprg=rg\ --color=never
-"   let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-"   let g:ctrlp_use_caching = 0
-" endif
+if executable('rg')
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_use_caching = 0
+endif
+
+let g:jedi#popup_on_dot = 0
+let g:jedi#show_call_signatures = 0
+let g:jedi#use_splits_not_buffers = 'left'
+let g:jedi#use_tabs_not_buffers = 0
