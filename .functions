@@ -1,0 +1,6 @@
+#!/bin/bash
+
+rtma ()
+{
+    ssh -A -t $1 "tmux attach || tmux new"
+}
