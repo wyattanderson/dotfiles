@@ -14,6 +14,7 @@ dotfiles:
 		f=$$(basename $$file); \
 		ln -sfn $(CURDIR)/$$file $(HOME)/$$f; \
 	done; \
+	[ -f $(CURDIR)/.extra ] && ln -sfn $(CURDIR)/.extra $(HOME)/.extra; \
 	ln -sfn $(CURDIR)/.vim $(HOME)/.vim; \
 	mkdir -p $(HOME)/.config; \
 	ln -sfn $(CURDIR)/.config/nvim $(HOME)/.config/nvim;
