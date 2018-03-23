@@ -67,6 +67,7 @@ let mapleader = ","
 
 set listchars=tab:>-,trail:?,eol:$
 nmap <silent> <leader>w :set nolist!<CR>
+map <silent> <leader><space> :let @/=''<CR>
 
 nnoremap <Tab> :tabnext<CR>
 nnoremap <S-Tab> :tabprev<CR>
