@@ -27,8 +27,8 @@ Plug 'prettier/vim-prettier'
 Plug 'Vimjas/vim-python-pep8-indent'
 
 if has('nvim')
-    Plug 'roxma/nvim-completion-manager'
-    Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-jedi'
 endif
 
 call plug#end()
@@ -106,3 +106,4 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 0
 let g:jedi#use_splits_not_buffers = 'left'
 let g:jedi#use_tabs_not_buffers = 0
+let g:deoplete#enable_at_startup = 1
