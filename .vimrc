@@ -20,6 +20,7 @@ Plug 'b4b4r07/vim-hcl'
 Plug 'cespare/vim-toml'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'davidhalter/jedi-vim'
+Plug 'vim-scripts/a.vim'
 
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -107,3 +108,9 @@ let g:jedi#show_call_signatures = 0
 let g:jedi#use_splits_not_buffers = 'left'
 let g:jedi#use_tabs_not_buffers = 0
 let g:deoplete#enable_at_startup = 1
+
+let g:alternateExtensions_jsx = "scss,css"
+let g:alternateExtensions_js = "scss,css"
+let g:alternateExtensions_css = "jsx,js"
+let g:alternateExtensions_scss = "jsx"
+
