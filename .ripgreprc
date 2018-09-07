@@ -1,0 +1,4 @@
+--type-add
+aurora:*.aurora
+--type-add
+build:BUILD

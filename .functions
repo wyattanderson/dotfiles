@@ -4,10 +4,6 @@ rtma() {
     ssh -A -t $1 "tmux attach || tmux new"
 }
 
-rg() {
-    command rg --type-add 'aurora:*.aurora' --type-add 'BUILD:BUILD' "$@"
-}
-
 pyrg() {
     rg --type python "$@"
 }
