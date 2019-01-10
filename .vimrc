@@ -18,7 +18,6 @@ Plug 'wting/rust.vim'
 Plug 'fatih/vim-go'
 Plug 'b4b4r07/vim-hcl'
 Plug 'cespare/vim-toml'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'vim-scripts/a.vim'
 
@@ -35,6 +34,11 @@ if has('nvim')
 
     Plug 'flowtype/vim-flow'
     Plug 'w0rp/ale'
+
+    Plug '/usr/local/opt/fzf'
+    Plug 'junegunn/fzf.vim'
+
+    nnoremap <c-p> :FZF<cr>
 endif
 
 call plug#end()
@@ -104,8 +108,6 @@ let g:airline_powerline_fonts = 1
 
 if executable('rg')
   set grepprg=rg\ --color=never
-  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-  let g:ctrlp_use_caching = 0
 endif
 
 let g:jedi#popup_on_dot = 0
