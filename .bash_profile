@@ -18,3 +18,5 @@ shopt -s histappend
 shopt -s cdspell
 
 shopt -s checkwinsize
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
