@@ -168,5 +168,5 @@ let g:ale_echo_msg_format = '%linter% says %s'
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
 
-nnoremap <leader>l :call system('arc browse ' . expand('%:p') . ':' . line('.'))<CR>
-vnoremap <leader>l :<C-U>call system('arc browse ' . expand('%:p') . ':' . line("'<") . '-' . line("'>"))<CR>
+nnoremap <silent> <leader>l :call system('arc browse ' . expand('%:p') . ':' . line('.'))<CR>
+vnoremap <silent> <leader>l :<C-U>call system('arc browse ' . expand('%:p') . ':' . line("'<") . '-' . line("'>"))<CR>
