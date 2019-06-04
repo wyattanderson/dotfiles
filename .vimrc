@@ -27,6 +27,7 @@ Plug 'prettier/vim-prettier'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'Shougo/neosnippet.vim'
 Plug 'honza/vim-snippets'
+Plug 'jparise/vim-graphql'
 
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
