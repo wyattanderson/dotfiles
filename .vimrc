@@ -158,8 +158,12 @@ let g:ale_linters = {
 \  'javascript': ['flow', 'eslint'],
 \  'python': []
 \}
+let g:ale_fixers = {
+\  'javascript': ['prettier']
+\}
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
 highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
+let g:ale_fix_on_save = 1
 let g:ale_sign_error = 'X' " could use emoji
 let g:ale_sign_warning = '?' " could use emoji
 let g:ale_statusline_format = ['X %d', '? %d', '']
