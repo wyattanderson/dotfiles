@@ -18,3 +18,5 @@ export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
 
 export FZF_DEFAULT_COMMAND='rg --files --color=never --glob ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
