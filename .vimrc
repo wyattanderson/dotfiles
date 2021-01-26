@@ -5,6 +5,7 @@ filetype plugin indent on
 call plug#begin('~/.vim-plug')
 
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'altercation/solarized', {'rtp': 'vim-colors-solarized/'}
 Plug 'solarnz/arcanist.vim'
 Plug 'bling/vim-airline'
@@ -29,6 +30,7 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'honza/vim-snippets'
 Plug 'jparise/vim-graphql'
 Plug 'zainin/vim-mikrotik'
+Plug 'editorconfig/editorconfig-vim'
 
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -156,7 +158,8 @@ let g:flow#showquickfix = 0
 " Limit linters used for JavaScript.
 let g:ale_linters = {
 \  'javascript': ['flow', 'eslint'],
-\  'python': []
+\  'python': [],
+\  'java': []
 \}
 let g:ale_fixers = {
 \  'javascript': ['prettier']
