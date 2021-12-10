@@ -19,15 +19,15 @@ Plug 'wting/rust.vim'
 Plug 'fatih/vim-go'
 Plug 'b4b4r07/vim-hcl'
 Plug 'cespare/vim-toml'
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 Plug 'vim-scripts/a.vim'
 
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'prettier/vim-prettier'
 Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'Shougo/neosnippet.vim'
-Plug 'honza/vim-snippets'
+" Plug 'Shougo/neosnippet.vim'
+" Plug 'honza/vim-snippets'
 Plug 'jparise/vim-graphql'
 Plug 'zainin/vim-mikrotik'
 Plug 'editorconfig/editorconfig-vim'
@@ -35,16 +35,27 @@ Plug 'saltstack/salt-vim'
 Plug 'jxnblk/vim-mdx-js'
 
 if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'zchee/deoplete-jedi'
+    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    " Plug 'zchee/deoplete-jedi'
 
-    Plug 'flowtype/vim-flow'
-    Plug 'w0rp/ale'
+    " Plug 'flowtype/vim-flow'
+    " Plug 'w0rp/ale'
 
-    Plug '/usr/local/opt/fzf'
-    Plug 'junegunn/fzf.vim'
+    " Plug '/usr/local/opt/fzf'
+    " Plug 'junegunn/fzf.vim'
+    " nnoremap <c-p> :FZF<cr>
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/cmp-cmdline'
+    Plug 'hrsh7th/nvim-cmp'
 
-    nnoremap <c-p> :FZF<cr>
+    " For vsnip users.
+    Plug 'hrsh7th/cmp-vsnip'
+    Plug 'hrsh7th/vim-vsnip'
+
+    set completeopt=menu,menuone,noselect
 endif
 
 call plug#end()
@@ -109,45 +120,11 @@ if exists('+colorcolumn')
     set colorcolumn=+1,120
 endif
 
-
 let g:airline_powerline_fonts = 1
 
 if executable('rg')
   set grepprg=rg\ --color=never
 endif
-
-let g:jedi#popup_on_dot = 0
-let g:jedi#show_call_signatures = 0
-let g:jedi#use_splits_not_buffers = 'left'
-let g:jedi#use_tabs_not_buffers = 0
-
-let g:deoplete#enable_at_startup = 1
-
-let g:neosnippet#disable_runtime_snippets = {
-    \ '_' : 1,
-    \ }
-let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory='~/.vim-plug/vim-snippets/snippets'
-
-let g:alternateExtensions_jsx = "scss,css"
-let g:alternateExtensions_js = "scss,css"
-let g:alternateExtensions_css = "jsx,js"
-let g:alternateExtensions_scss = "jsx"
-
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " For conceal markers.
 if has('conceal')
@@ -183,3 +160,67 @@ nnoremap <silent> <leader>l :call system('arc browse ' . expand('%:p') . ':' . l
 vnoremap <silent> <leader>l :<C-U>call system('arc browse ' . expand('%:p') . ':' . line("'<") . '-' . line("'>"))<CR>
 
 set conceallevel=0
+
+if has('nvim')
+    lua <<EOF
+      -- Setup nvim-cmp.
+      local cmp = require'cmp'
+
+      cmp.setup({
+        snippet = {
+          -- REQUIRED - you must specify a snippet engine
+          expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+            -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+            -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+            -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
+          end,
+        },
+        mapping = {
+          ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+          ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+          ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+          ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+          ['<C-e>'] = cmp.mapping({
+            i = cmp.mapping.abort(),
+            c = cmp.mapping.close(),
+          }),
+          -- Accept currently selected item. If none selected, `select` first item.
+          -- Set `select` to `false` to only confirm explicitly selected items.
+          ['<CR>'] = cmp.mapping.confirm({ select = false }),
+        },
+        sources = cmp.config.sources({
+          { name = 'nvim_lsp' },
+          { name = 'vsnip' }, -- For vsnip users.
+          -- { name = 'luasnip' }, -- For luasnip users.
+          -- { name = 'ultisnips' }, -- For ultisnips users.
+          -- { name = 'snippy' }, -- For snippy users.
+        }, {
+          { name = 'buffer' },
+        })
+      })
+
+      -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+      cmp.setup.cmdline('/', {
+        sources = {
+          { name = 'buffer' }
+        }
+      })
+
+      -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+      cmp.setup.cmdline(':', {
+        sources = cmp.config.sources({
+          { name = 'path' }
+        }, {
+          { name = 'cmdline' }
+        })
+      })
+
+      -- Setup lspconfig.
+      local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+      -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+      require('lspconfig')['tsserver'].setup {
+        capabilities = capabilities
+      }
+EOF
+endif
