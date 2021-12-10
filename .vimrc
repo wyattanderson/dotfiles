@@ -31,6 +31,8 @@ Plug 'honza/vim-snippets'
 Plug 'jparise/vim-graphql'
 Plug 'zainin/vim-mikrotik'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'saltstack/salt-vim'
+Plug 'jxnblk/vim-mdx-js'
 
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -179,3 +181,5 @@ nnoremap <leader>ap :ALEPreviousWrap<cr>
 
 nnoremap <silent> <leader>l :call system('arc browse ' . expand('%:p') . ':' . line('.'))<CR>
 vnoremap <silent> <leader>l :<C-U>call system('arc browse ' . expand('%:p') . ':' . line("'<") . '-' . line("'>"))<CR>
+
+set conceallevel=0
