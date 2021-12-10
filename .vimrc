@@ -58,6 +58,8 @@ if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate javascript html python go'}  " We recommend updating the parsers on update
     Plug 'windwp/nvim-ts-autotag'
 
+    Plug 'windwp/nvim-autopairs'
+
     set completeopt=menu,menuone,noselect
 endif
 
@@ -228,5 +230,9 @@ if has('nvim')
 
       -- Set up nvim-ts-autotag
       require('nvim-ts-autotag').setup()
+
+      -- Set up nvim-autopairs for autopair matching
+      require('nvim-autopairs').setup{}
+
 EOF
 endif
