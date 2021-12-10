@@ -55,6 +55,9 @@ if has('nvim')
     Plug 'hrsh7th/cmp-vsnip'
     Plug 'hrsh7th/vim-vsnip'
 
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate javascript html python go'}  " We recommend updating the parsers on update
+    Plug 'windwp/nvim-ts-autotag'
+
     set completeopt=menu,menuone,noselect
 endif
 
@@ -222,5 +225,8 @@ if has('nvim')
       require('lspconfig')['tsserver'].setup {
         capabilities = capabilities
       }
+
+      -- Set up nvim-ts-autotag
+      require('nvim-ts-autotag').setup()
 EOF
 endif
