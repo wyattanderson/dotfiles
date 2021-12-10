@@ -34,3 +34,6 @@
 
 [include]
     path = ~/.gitconfig-local
+[user]
+	name = Wyatt Anderson
+	email = wanderson@gmail.com
