@@ -1,12 +1,14 @@
 set nocompatible
 filetype off
 filetype plugin indent on
+let mapleader = ","
 
 call plug#begin('~/.vim-plug')
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
-Plug 'altercation/solarized', {'rtp': 'vim-colors-solarized/'}
+" Plug 'altercation/solarized', {'rtp': 'vim-colors-solarized/'}
+Plug 'lifepillar/vim-solarized8'
 Plug 'solarnz/arcanist.vim'
 Plug 'bling/vim-airline'
 Plug 'kevints/vim-aurora-syntax'
@@ -43,7 +45,7 @@ if has('nvim')
 
     " Plug '/usr/local/opt/fzf'
     " Plug 'junegunn/fzf.vim'
-    " nnoremap <c-p> :FZF<cr>
+    Plug 'folke/lsp-colors.nvim'
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'
@@ -54,13 +56,35 @@ if has('nvim')
     " For vsnip users.
     Plug 'hrsh7th/cmp-vsnip'
     Plug 'hrsh7th/vim-vsnip'
+    set completeopt=menu,menuone,noselect
 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate javascript html python go'}  " We recommend updating the parsers on update
     Plug 'windwp/nvim-ts-autotag'
-
     Plug 'windwp/nvim-autopairs'
 
-    set completeopt=menu,menuone,noselect
+    " For trouble.nvim and its dependencies
+    Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'folke/trouble.nvim'
+
+    " For todo-comments
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'folke/todo-comments.nvim'
+
+    " For telescope
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    nnoremap <c-p> <cmd>Telescope find_files<cr>
+    nnoremap <leader>ff <cmd>Telescope find_files<cr>
+    nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+
+    Plug 'sbdchd/neoformat'
+    autocmd BufWritePre *.js Neoformat
+    let g:neoformat_try_node_exe = 1
+
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
+    Plug 'ray-x/navigator.lua'
+
 endif
 
 call plug#end()
@@ -95,8 +119,6 @@ set mouse=a
 inoremap kj <ESC>
 inoremap zkj <ESC>:w<CR>
 
-let mapleader = ","
-
 set listchars=tab:>-,trail:?,eol:$
 nmap <silent> <leader>w :set nolist!<CR>
 map <silent> <leader><space> :let @/=''<CR>
@@ -118,7 +140,9 @@ noremap  <Right> <NOP>
 " for us anymore
 nnoremap <silent> <C-n> :set relativenumber!<cr>
 
-silent! colorscheme solarized
+set termguicolors
+let g:solarized_termtrans = 1
+silent! colorscheme solarized8
 set background=dark
 
 if exists('+colorcolumn')
@@ -233,6 +257,14 @@ if has('nvim')
 
       -- Set up nvim-autopairs for autopair matching
       require('nvim-autopairs').setup{}
+
+      require("trouble").setup{}
+
+      require("todo-comments").setup{}
+      vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>TroubleToggle<cr>",
+      {silent = true, noremap = true})
+
+      require'navigator'.setup()
 
 EOF
 endif
