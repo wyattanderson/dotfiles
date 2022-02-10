@@ -31,4 +31,8 @@ else
     host_color="1;$((checksum % 6))";
 fi
 
-declare -x PS1='\[\e[${user_color}m\]$short_username\[\e[0m\]@\[\e[${host_color}m\]\h\[\e[0m\]:\[\e[${red_flag}m\]\W\[\e[0m\]\$$(__git_ps1 " (%s)") '
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    declare -x PS1='\[\e[${user_color}m\]$short_username\[\e[0m\]@\[\e[${host_color}m\]\h\[\e[0m\]:\[\e[${red_flag}m\]\W\[\e[0m\]\$$(__git_ps1 " (%s)") '
+else
+    declare -x PS1='\[\e[${red_flag}m\]\[\e[0;34m\]\W\[\e[0m\]\[\e[0;36m\]$(__git_ps1 " (%s)")\[\e[0m\] $ '
+fi
