@@ -6,12 +6,14 @@ let mapleader = ","
 call plug#begin('~/.vim-plug')
 
 Plug 'tpope/vim-fugitive'
+Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-eunuch'
 " Plug 'altercation/solarized', {'rtp': 'vim-colors-solarized/'}
 Plug 'lifepillar/vim-solarized8'
 Plug 'solarnz/arcanist.vim'
 Plug 'bling/vim-airline'
-Plug 'kevints/vim-aurora-syntax'
+Plug 'kevins/vim-aurora-syntax'
 Plug 'tpope/vim-commentary'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-surround'
@@ -25,8 +27,10 @@ Plug 'cespare/vim-toml'
 Plug 'vim-scripts/a.vim'
 
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'prettier/vim-prettier'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+" Plug 'mxw/vim-jsx'
+" Plug 'prettier/vim-prettier'
 Plug 'Vimjas/vim-python-pep8-indent'
 " Plug 'Shougo/neosnippet.vim'
 " Plug 'honza/vim-snippets'
@@ -45,8 +49,8 @@ if has('nvim')
 
     " Plug '/usr/local/opt/fzf'
     " Plug 'junegunn/fzf.vim'
-    Plug 'folke/lsp-colors.nvim'
     Plug 'neovim/nvim-lspconfig'
+    Plug 'folke/lsp-colors.nvim'
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
@@ -79,10 +83,9 @@ if has('nvim')
     nnoremap <leader>fb <cmd>Telescope buffers<cr>
 
     Plug 'sbdchd/neoformat'
-    autocmd BufWritePre *.js Neoformat
+    autocmd BufWritePre *.tsx,*.ts,*.js Neoformat
     let g:neoformat_try_node_exe = 1
 
-    Plug 'neovim/nvim-lspconfig'
     Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
     Plug 'ray-x/navigator.lua'
 
@@ -206,7 +209,7 @@ if has('nvim')
             -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
           end,
         },
-        mapping = {
+        mapping = cmp.mapping.preset.insert({
           ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
           ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
           ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
@@ -218,7 +221,7 @@ if has('nvim')
           -- Accept currently selected item. If none selected, `select` first item.
           -- Set `select` to `false` to only confirm explicitly selected items.
           ['<CR>'] = cmp.mapping.confirm({ select = false }),
-        },
+        }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
           { name = 'vsnip' }, -- For vsnip users.
@@ -247,14 +250,22 @@ if has('nvim')
       })
 
       -- Setup lspconfig.
-      local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
       -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-      require('lspconfig')['tsserver'].setup {
-        capabilities = capabilities
-      }
-      require('lspconfig')['gopls'].setup {
-        capabilities = capabilities
-      }
+      -- require('lspconfig')['tsserver'].setup {
+      --   capabilities = capabilities
+      -- }
+      -- require('lspconfig')['gopls'].setup {
+      --   capabilities = capabilities,
+      --   settings = {
+      --     gopls = {
+      --       buildFlags =  {"-tags=wireinject"},
+      --       env = {GOFLAGS="-tags=wireinject"}
+      --     }
+      --   }
+      -- }
 
       -- Set up nvim-ts-autotag
       require('nvim-ts-autotag').setup()
@@ -268,7 +279,38 @@ if has('nvim')
       vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>TroubleToggle<cr>",
       {silent = true, noremap = true})
 
-      require'navigator'.setup()
+      require'navigator'.setup{
+        -- unmap this fucking key so it doesn't conflict with vim-go
+        keymaps = {{key = "<Leader>gdt", func = "require('navigator.diagnostics').toggle_diagnostics()"}},
+        lsp = {
+            disable_lsp = {'ngserver', 'deno', 'graphql-lsp'},
+            disable_format_cap = {"tsserver"},
+            },
+      }
+
+      require'nvim-treesitter.configs'.setup {
+          highlight = {
+              enable = true,
+          }
+      }
 
 EOF
 endif
+
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
+map <Leader>n :vsplit <C-R>=expand("%:p:h") . "/" <CR>
+
+let g:go_build_tags = 'wireinject'
+let g:go_fillstruct_mode = 'gopls'
+let g:go_alternate_mode = 'vsplit'
+let g:go_imports_mode = 'goimports'
+
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+  let g:go_fmt_options = {
+    \ 'goimports': '-local gitlab.com/levelbenefits/level',
+    \ }
