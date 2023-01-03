@@ -11,3 +11,12 @@ pyrg() {
 jsrg() {
     rg --type js "$@"
 }
+
+gcd() {
+    local repo=$(git rev-parse --show-toplevel)
+    if [ $# -eq 0 ]; then
+        cd $repo
+    else 
+        cd $repo && cd "$@"
+    fi
+}

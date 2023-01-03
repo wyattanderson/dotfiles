@@ -7,6 +7,11 @@ else # OS X `ls`
 	colorflag="-G"
 fi
 
+alias xargs="xargs "
+
+alias nviml="nvim --listen ~/.cache/nvim/server.sock"
+alias nvr="nvim --server ~/.cache/nvim/server.sock"
+
 alias ls="command ls ${colorflag}"
 alias ll="ls -lh"
 alias vim="nvim"

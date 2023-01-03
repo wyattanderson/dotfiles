@@ -15,7 +15,7 @@
 	ui = auto
 
 [mergetool "fugitive"]
-	cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
+	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 
 [merge]
 	tool = fugitive
@@ -34,6 +34,5 @@
 
 [include]
     path = ~/.gitconfig-local
-[user]
-	name = Wyatt Anderson
-	email = wanderson@gmail.com
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com/

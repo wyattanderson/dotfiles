@@ -19,4 +19,6 @@ shopt -s cdspell
 
 shopt -s checkwinsize
 
+ulimit -n 10240
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
