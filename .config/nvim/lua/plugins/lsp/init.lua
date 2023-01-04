@@ -86,12 +86,13 @@ return {
     config = function()
       local nls = require("null-ls")
       nls.setup({
+        debug = true,
         debounce = 150,
         save_after_format = false,
         sources = {
           nls.builtins.formatting.stylua,
           nls.builtins.formatting.goimports.with({
-            extra_args = { "-local gitlab.com/levelbenefits/level" },
+            extra_args = { "-local", "gitlab.com/levelbenefits/level" },
           }),
         },
         root_dir = require("null-ls.utils").root_pattern(
