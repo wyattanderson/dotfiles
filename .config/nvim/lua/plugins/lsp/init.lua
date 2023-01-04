@@ -86,7 +86,6 @@ return {
     config = function()
       local nls = require("null-ls")
       nls.setup({
-        debug = true,
         debounce = 150,
         save_after_format = false,
         sources = {
