@@ -9,11 +9,21 @@ return {
       "hrsh7th/cmp-nvim-lsp",
     },
     servers = {
-      gopls = {},
+      gopls = {
+        settings = {
+          gopls = {
+            buildFlags = { "-tags=wireinject" },
+            env = { GOFLAGS = "-tags=wireinject" },
+            analyses = {
+              shadow = true,
+            },
+          },
+        },
+      },
     },
     config = function(plugin)
       require("util").on_attach(function(client, buffer)
-        -- require("plugins.lsp.keymaps").on_attach(client, buffer)
+        require("plugins.lsp.keymaps").on_attach(client, buffer)
       end)
 
       local capabilities = require("cmp_nvim_lsp").default_capabilities(
@@ -80,6 +90,9 @@ return {
         save_after_format = false,
         sources = {
           nls.builtins.formatting.stylua,
+          nls.builtins.formatting.goimports.with({
+            extra_args = { "-local gitlab.com/levelbenefits/level" },
+          }),
         },
         root_dir = require("null-ls.utils").root_pattern(
           ".null-ls-root",
@@ -98,6 +111,19 @@ return {
             })
           end
         end,
+      })
+    end,
+  },
+
+  {
+    url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+      vim.diagnostic.config({
+        virtual_text = false,
+        -- virtual_lines = {
+        --   only_current_line = true,
+        -- },
       })
     end,
   },
