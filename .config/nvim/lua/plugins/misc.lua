@@ -1,5 +1,10 @@
 return {
-  "windwp/nvim-autopairs",
+  {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup()
+    end,
+  },
 
   "folke/lsp-colors.nvim",
 

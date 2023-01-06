@@ -8,6 +8,7 @@ function M.on_attach(client, buffer)
     vim.lsp.buf.code_action,
     { desc = "Code Action", mode = { "n", "v" }, has = "codeAction" }
   )
+  self:map("K", vim.lsp.buf.hover, { desc = "Hover" })
 end
 
 function M.new(client, buffer)
