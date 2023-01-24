@@ -1,9 +1,8 @@
 return {
-  "lifepillar/vim-solarized8",
+  "ishan9299/nvim-solarized-lua",
   config = function()
     vim.opt.termguicolors = true
     vim.g.solarized_termtrans = 1
-    vim.cmd.colorscheme("solarized8")
-    vim.opt.background = "dark"
+    vim.cmd.colorscheme("solarized")
   end,
 }

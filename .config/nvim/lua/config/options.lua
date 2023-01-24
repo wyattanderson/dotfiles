@@ -8,3 +8,6 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
+vim.opt.formatexpr = ""
+vim.opt.textwidth = 78
+vim.opt.formatoptions = "croqnl1"

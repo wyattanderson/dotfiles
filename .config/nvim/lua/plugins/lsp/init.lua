@@ -20,6 +20,7 @@ return {
           },
         },
       },
+      terraformls = {},
     },
     config = function(plugin)
       require("util").on_attach(function(client, buffer)
@@ -93,6 +94,7 @@ return {
           nls.builtins.formatting.goimports.with({
             extra_args = { "-local", "gitlab.com/levelbenefits/level" },
           }),
+          nls.builtins.formatting.terraform_fmt,
         },
         root_dir = require("null-ls.utils").root_pattern(
           ".null-ls-root",
