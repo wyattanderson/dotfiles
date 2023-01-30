@@ -95,6 +95,10 @@ return {
             extra_args = { "-local", "gitlab.com/levelbenefits/level" },
           }),
           nls.builtins.formatting.terraform_fmt,
+          nls.builtins.formatting.buildifier.with({
+            extra_filetypes = { "starlark" },
+            extra_args = { "-lint", "fix" },
+          }),
         },
         root_dir = require("null-ls.utils").root_pattern(
           ".null-ls-root",
