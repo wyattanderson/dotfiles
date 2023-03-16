@@ -4,6 +4,13 @@ return {
   },
 
   {
+    "smjonas/inc-rename.nvim",
+    config = function(plugin)
+      require("inc_rename").setup()
+    end,
+  },
+
+  {
     "neovim/nvim-lspconfig",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",

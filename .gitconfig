@@ -36,3 +36,6 @@
     path = ~/.gitconfig-local
 [url "git@gitlab.com:"]
 	insteadOf = https://gitlab.com/
+
+[push]
+	default = current

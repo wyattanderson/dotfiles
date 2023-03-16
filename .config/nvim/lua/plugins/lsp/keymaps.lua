@@ -9,6 +9,20 @@ function M.on_attach(client, buffer)
     { desc = "Code Action", mode = { "n", "v" }, has = "codeAction" }
   )
   self:map("K", vim.lsp.buf.hover, { desc = "Hover" })
+  self:map("<leader>cr", function()
+    return ":IncRename " .. vim.fn.expand("<cword>")
+  end, { desc = "Rename", has = "rename", expr = true })
+
+  self:map(
+    "gK",
+    vim.lsp.buf.signature_help,
+    { desc = "Signature Help", has = "signatureHelp" }
+  )
+  self:map(
+    "<c-k>",
+    vim.lsp.buf.signature_help,
+    { mode = "i", desc = "Signature Help", has = "signatureHelp" }
+  )
 end
 
 function M.new(client, buffer)
