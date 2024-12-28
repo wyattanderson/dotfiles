@@ -7,7 +7,7 @@ dotfiles := $(addprefix $(HOME)/,$(filter-out .gitignore,$(shell git ls-files --
 configs := $(addprefix $(XDG_CONFIG_HOME)/,$(notdir $(wildcard .config/*)))
 
 .PHONY: all
-all: $(dotfiles) $(git-prompt.sh) $(git-completion.bash)
+all: $(dotfiles) $(configs) $(git-prompt.sh) $(git-completion.bash)
 
 $(XDG_CONFIG_HOME):
 	mkdir -p $(XDG_CONFIG_HOME)
