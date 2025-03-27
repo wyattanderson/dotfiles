@@ -14,6 +14,7 @@ return {
           "html",
           "javascript",
           "json",
+          "jsonnet",
           "lua",
           "markdown",
           "markdown_inline",

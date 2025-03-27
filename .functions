@@ -20,3 +20,15 @@ gcd() {
         cd $repo && cd "$@"
     fi
 }
+
+yqdm() {
+    local command
+    command="$1"
+    shift 1
+    set -o pipefail
+    for f in $@; do
+        if yq -e "$command" "$f" > /dev/null 2>&1; then
+            yq "$command" "$f" | (diff -Bw "$f" - || true) | patch "$f" -
+        fi
+    done
+}
